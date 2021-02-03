@@ -12,9 +12,35 @@ This website will provide as a reference for any book buyer, to search for revie
  
 * Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-### Overview
+### Strategy Plane
 
-The "Views and Reviews" project has been concieved having in mind that Book Readers often require to read a short review of a book to understand whether it would be the one of their next reading lists. This website will help the users navigate easily, and post a review on any kind of books ranging from story books, Cookery books, Art books, Biographies, Comics and more. Any user can search the website for reviews that might be posted already. They can also rate a review.
+The "Views and Reviews" project has been concieved having in mind for the book readers community. Readers often require to read a short review of a book to understand whether it would be the one of their next reading lists. This website will help the users get a deeper insight into a book, and post a review on any kind of books ranging from story books, Cookery books, Art books, Biographies, Comics and more. Any user can search the website for reviews that might be posted already. They can also rate a review.
+
+### Scope Plane
+
+The scope of "Views and Reviews" is capped at the following:
+    1. Users will be able to register and thereby login into the website to post a review on any book of their choice
+    2. All users will be able to search and read a review on any books. They can also rate a review.
+    3. Tha Admin user can publish any of the existing reviews as the review of the week. And will have superuser access to remove any reviews from the website.
+
+* Here, the focus is on reviews posted by user, and hence user management in detail is considered outside the scope of this system. 
+* Any kind of analysis with the ratings of reviews is outside the scope of this project.
+
+### structure Plane 
+
+The website is structured so that the user can navigate easily and fulfill their goal of either reading reviews or posting a review for any book. A sitemap of the project is enclosed below
+
+![Project Sitemap](Design/Sitemap.png)
+
+The Data is stored in the Backend. The database being used to store this is MongoDB. The Data is structured in the form of JSON files. 
+
+{{ ER diagrams here }}
+
+### Skeleton Plane
+
+The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. The flow of data is depicted as follows:
+
+![Data Flow Diagram](Design/dfd.png)
 
 ### User stories
 
@@ -95,6 +121,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 
 ## Credits
+For creating the sitemap I have used [Gloomaps](https://www.gloomaps.com/EJjeybEnhs)
+For Creating the Data Flow Diagram I have used [Miro] (https://miro.com/app/board/o9J_lWeK1kc=/)
 
 ### Content
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
