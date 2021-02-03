@@ -9,8 +9,6 @@ The Views and Reviews project caters to individuals of interest by Sharing their
 This website will provide as a reference for any book buyer, to search for reviews and provide a rating for the reviews that has been posted. However, only registered users can post a review. This project has been build using Pyhon and Flask Framework as Backend and MongoDB as the database. Details of this is provided in the detailed sections below.
  
 ## UX
- 
-* Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 ### Strategy Plane
 
@@ -26,11 +24,11 @@ The scope of "Views and Reviews" is capped at the following:
 * Here, the focus is on reviews posted by user, and hence user management in detail is considered outside the scope of this system. 
 * Any kind of analysis with the ratings of reviews is outside the scope of this project.
 
-### structure Plane 
+### Structure Plane 
 
 The website is structured so that the user can navigate easily and fulfill their goal of either reading reviews or posting a review for any book. A sitemap of the project is enclosed below
 
-![Project Sitemap](Design/Sitemap.png)
+![Project Sitemap](/Design/Sitemap.png)
 
 The Data is stored in the Backend. The database being used to store this is MongoDB. The Data is structured in the form of JSON files. 
 
@@ -40,12 +38,11 @@ The Data is stored in the Backend. The database being used to store this is Mong
 
 The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. The flow of data is depicted as follows:
 
-![Data Flow Diagram](Design/dfd.png)
+![Data Flow Diagram](/Design/dfd.png)
 
 ### User stories
 
 The project aims to address the following user stories
-
 1. As an Admin user, I should be able to create Category / Genre of Books, Edit and Delete this from the database. So that I can have some control on how the books and reviews are organized.
 2. As an Admin user, I should be able to mark a review as a featured review which will be displayed on the home page of the website and will be visible to any first time visitor of the site without having to perform a search
 3. As an Admin user, I should be able to Edit and Delete information about any Registered User. So that, I can clear up the database for users who has never logged in.
