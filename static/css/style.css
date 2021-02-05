@@ -1,3 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+
 body {
-    background-color: aquamarine;
+    background-color: #FDF8E1;
+}
+nav .brand-logo {
+    position: absolute;
+    font-family: "Cinzel";
+    color: #02233B;
+    display: inline-block;
+    font-size: 30px;
+    padding: 4px;
+}
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(248, 246, 246, 0.8);
+}
+.nav-background{
+    background: #D69B59;
+}
+
+/* Footer Styles */
+footer div {
+    text-align: center;
+}
+
+footer a:hover{
+    text-decoration: none;
+    color: #fafafafa;
+}
+
+.page-footer {
+    width: 100%;
+    height: 80px;
+    padding-top: 20px;
+    color: #fff;
+    background-color: #D69B59;
+}
+.footer-icons {
+    font-size: 28px;
+    padding: 5px;
+    color: #02233B;
 }
