@@ -1,9 +1,30 @@
 {% extends "base.html" %}
     {% block content %}
-    <br><br>
+    <br>
         <div class="container">
-           <div class="row">
-                <div class="col s6 m6">
+            <div class="row">
+                <div class="col s12 m12, l12">
+                    <span class="tagline-emphasis">Love Reading? </span> <span class="tagline">Share your Views on any books and enjoy reading other's Reviews too.. Browse from the listed Categories of Books</span>
+                    <div class="row l8 m8 s12">
+                    {% for category in categories %}
+                        <a class="btn-small deep-orange darken-4">{{ category.category_name }}</a>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l6">
+                    
+                    <div class="card">
+                    <div class="card-image">
+                        <!-- section for image -->
+                        <img id="hero-image" src="static/images/Book_Hero.jpg" alt="Site image for Book Review">
+                    </div>
+                    </div>
+
+                    
+                </div>
+                <div class="col s12 m12 l6">
                     <div class="card">
                         <div class="card-content  orange lighten-4">
                         <span class="card-title">Featured Review</span>
@@ -17,15 +38,6 @@
                         </p>
                         <span> <a href="">Read More...</a></span>
                         </div>
-                       
-                    </div>
-                </div>
-                <div class="col s6">
-                    <div class="card">
-                    <div class="card-image">
-                        <!-- section for image -->
-                        <img id="hero-image" src="static/images/Book_Hero.jpg" alt="Site image for Book Review">
-                    </div>
                     </div>
                 </div>
             </div>
@@ -33,7 +45,7 @@
                 <div class="col s12 card-panel orange lighten-5">
                 
                     <h5>Search Reviews</h5>
-                    <div class="input-field col s6">
+                    <div class="input-field col s5">
                         <select>
                             <option value="" disabled selected>Select Categories...</option>
                             <option value="1">Option 1</option>
@@ -44,7 +56,7 @@
                     <div class="input-field col s5">
                         <input placeholder="Search Text" id="Search" name="search" type="text" class="validate">
                     </div>
-                    <div class="col s1">
+                    <div class="col s2">
         
                         <button class="btn brown darken-1" type="submit" name="action">
                             <i class="fas fa-search"></i>
@@ -56,7 +68,5 @@
             </div>
         </div>
         
-        {% for category in categories %}
-            {{ category.category_name }}<br>
-        {% endfor %}
+        
     {% endblock %}

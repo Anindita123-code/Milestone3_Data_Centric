@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;300&display=swap');
 
 nav {
     color: #02233B;;
+}
+
+.tagline{
+    font-family: "Oswald", sans-serif;
+    size: 20px;
+    font-weight: 300;
+    color: #123456;
+    line-height: 40px;
+}
+
+.tagline-emphasis {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    size: 20px;
+    line-height: 40px;
 }
 
 nav .brand-logo {
@@ -10,8 +25,8 @@ nav .brand-logo {
     font-family: "Cinzel";
     color: #02233B;
     display: inline-block;
-    font-size: 30px;
-    padding: 4px;
+    font-size: 20px;
+    padding: 2px;
 }
 nav ul .text-style {
     font-family: "Cinzel";
@@ -59,4 +74,14 @@ footer a i:hover{
 
 h5{
     color: #795548 ;
+}
+
+
+@media only screen and (min-width: 601px)
+{
+    nav .brand-logo 
+    {
+        font-size: 30px;
+        padding: 2px;
+    }
 }
