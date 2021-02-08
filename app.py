@@ -5,6 +5,8 @@ from bson.objectid import ObjectId
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+from werkzeug.security import (
+    generate_password_hash, check_password_hash)
 
 if os.path.exists("env.py"):
     import env
@@ -16,12 +18,34 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
 @app.route("/")
 @app.route("/home",)
 def home():
     categories = mongo.db.categories.find()
     return render_template("home.html", categories=categories)
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        user_exists = mongo.db.users.find_one({"username": 
+            request.form.get("username").lower()})
+        if user_exists:
+            flash("Username / Password Already Exists !")
+            return redirect(url_for('register'))
+
+        new_user = {
+            "username": request.form.get("username"),
+            "email": request.form.get("email"),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(new_user)
+        # store in session variable
+
+        session["login_user"] = request.form.get("username").lower()
+        flash("You have been registered, Welcome to Views and Reviews !!")
+        
+    return render_template('register.html')
 
 
 @app.route("/get_categories")

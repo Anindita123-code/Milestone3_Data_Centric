@@ -18,17 +18,17 @@
         <!-- Top Navbar -->
         <nav class="nav-style">
             <div class="nav-wrapper">
-            <a href="#!" class="brand-logo text-shadow">&nbsp;Views and Reviews</a>
+            <a href="{{ url_for ('home') }}" class="brand-logo text-shadow">&nbsp;Views and Reviews</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down text-shadow text-style">
-                <li><a href="">Home</a></li>
+                <li><a href="url_for('home') }}">Home</a></li>
                 <li><a href="">Profile</a></li>
                 <li><a href="">Manage Categories</a></li>
                 <li><a href="">Add Books</a></li>
                 <li><a href="">Add Reviews</a></li>
                 <li><a href="">Signout</a></li>
                 <li><a href="">Login</a></li>
-                <li><a href="">Register</a></li>
+                <li><a href="{{ url_for('register') }} ">Register</a></li>
 
             </ul>
             </div>
@@ -36,23 +36,35 @@
 
         <!-- Mobile Sidebar -->
         <ul class="sidenav" id="mobile-demo">
-                <li><a href="">Home</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="">Profile</a></li>
                 <li><a href="">Manage Categories</a></li>
                 <li><a href="">Add Books</a></li>
                 <li><a href="">Add Reviews</a></li>
                 <li><a href="">Signout</a></li>
                 <li><a href="">Login</a></li>
-                <li><a href="">Register</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
             
     </header>
+    <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row notification">
+                        <h5 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
     <content>
         <div>
              {% block content %}
              {% endblock %}
         </div>
-   
     </content>
     <footer class="page-footer">
         <div class="container">
