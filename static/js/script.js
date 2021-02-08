@@ -1,3 +1,4 @@
 $(document).ready(function(){
-    $('.sidenav').sidenav();
+    $('.sidenav').sidenav({edge: "right"});
+    $('select').formSelect();
 });

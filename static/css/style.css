@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 
-body {
-    background-color: #FDF8E1;
+
+nav {
+    color: #02233B;;
 }
+
 nav .brand-logo {
     position: absolute;
     font-family: "Cinzel";
@@ -11,11 +13,17 @@ nav .brand-logo {
     font-size: 30px;
     padding: 4px;
 }
-.text-shadow {
-    text-shadow: 2px 2px 2px rgba(248, 246, 246, 0.8);
+nav ul .text-style {
+    font-family: "Cinzel";
+    color: #02233B;   
 }
-.nav-background{
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(248, 246, 246, 0.6);
+}
+.nav-style{
     background: #D69B59;
+    font-family: "Cinzel";
+    /* color: #02233B; */
 }
 
 /* Footer Styles */
@@ -23,20 +31,32 @@ footer div {
     text-align: center;
 }
 
-footer a:hover{
-    text-decoration: none;
-    color: #fafafafa;
-}
-
 .page-footer {
     width: 100%;
     height: 80px;
     padding-top: 20px;
-    color: #fff;
     background-color: #D69B59;
+    
 }
 .footer-icons {
     font-size: 28px;
     padding: 5px;
     color: #02233B;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+footer a i:hover{
+    text-decoration: none;
+    color: rgb(55, 90, 48);
+}
+
+#hero-image {
+    width: 100%;
+}
+
+h5{
+    color: #795548 ;
 }

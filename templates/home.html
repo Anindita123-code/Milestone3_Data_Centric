@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+    {% block content %}
+    <br><br>
+        <div class="container">
+           <div class="row">
+                <div class="col s6 m6">
+                    <div class="card">
+                        <div class="card-content  orange lighten-4">
+                        <span class="card-title">Featured Review</span>
+                        <p> -- Review Text and Image --- 
+                            I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.
+                            I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively
+                            I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively
+                        </p>
+                        <span> <a href="">Read More...</a></span>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="card">
+                    <div class="card-image">
+                        <!-- section for image -->
+                        <img id="hero-image" src="static/images/Book_Hero.jpg" alt="Site image for Book Review">
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 card-panel orange lighten-5">
+                
+                    <h5>Search Reviews</h5>
+                    <div class="input-field col s6">
+                        <select>
+                            <option value="" disabled selected>Select Categories...</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s5">
+                        <input placeholder="Search Text" id="Search" name="search" type="text" class="validate">
+                    </div>
+                    <div class="col s1">
+        
+                        <button class="btn brown darken-1" type="submit" name="action">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        {% for category in categories %}
+            {{ category.category_name }}<br>
+        {% endfor %}
+    {% endblock %}
