@@ -28,8 +28,9 @@ def home():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        user_exists = mongo.db.users.find_one({"username": 
-            request.form.get("username").lower()})
+        user_exists = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
         if user_exists:
             flash("Username / Password Already Exists !")
             return redirect(url_for('register'))
@@ -42,10 +43,29 @@ def register():
         mongo.db.users.insert_one(new_user)
         # store in session variable
 
-        session["login_user"] = request.form.get("username").lower()
-        flash("You have been registered, Welcome to Views and Reviews !!")
-        
+        session["user"] = request.form.get("username").lower()
+        flash("You have been registered successfully !!")
+
     return render_template('register.html')
+
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        user_exists = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if user_exists:
+            if check_password_hash(
+                    user_exists["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome {}".format(request.form.get("username")))
+            else:
+                flash("The Username and/or Password doesnot match!!")
+        else:
+            flash("The Username and/or Password doesnot match!!")
+
+    return render_template("login.html")
 
 
 @app.route("/get_categories")
