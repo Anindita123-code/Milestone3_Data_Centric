@@ -76,6 +76,16 @@ h5{
     color: #795548 ;
 }
 
+.hero_thumbnail{
+    background: url("../images/book_logo.jpeg") ;
+    height: 110px;
+    width: 110px;
+    padding: 0px 10px 0px 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    background-size: 115px;
+}
 
 @media only screen and (min-width: 601px)
 {
