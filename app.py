@@ -97,6 +97,31 @@ def logout():
     categories = mongo.db.categories.find()
     return render_template("home.html", categories=categories)
 
+
+@app.route('/books', methods=["GET", "POST"])
+def books():
+    categories = mongo.db.categories.find()
+    if request.method == "POST":
+        db_book = mongo.db.books.find_one(
+            {"book_name": request.form.get("book_name").lower()},
+            {"author_name": request.form.get("author").lower()})
+        if db_book:
+            flash("This Book already exists in the database.")
+            return redirect('books')
+        else:
+            newBook = {
+                        "category_name": request.form.get("category"),
+                        "book_name": request.form.get("book_name").lower(),
+                        "author_name": request.form.get("author").lower(),
+                        "image_url": request.form.get("image_url").lower(),
+                        "description": request.form.get("description").lower()
+                    }
+            mongo.db.books.insert_one(newBook)
+            flash("New Book Added Successfully!")
+
+    return render_template("books.html", categories=categories)
+
+
 @app.route("/get_categories")
 def get_categories():
     categories = mongo.db.categories.find()

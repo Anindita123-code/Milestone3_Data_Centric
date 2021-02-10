@@ -76,6 +76,9 @@ h5{
     color: #795548 ;
 }
 
+.mandatory{
+    color: red;
+}
 .hero_thumbnail{
     background: url("../images/book_logo.jpeg") ;
     height: 110px;

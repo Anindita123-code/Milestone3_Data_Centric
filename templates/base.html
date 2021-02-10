@@ -26,11 +26,11 @@
                     {% if session.user == "admin" %}
                         <li><a href="{{ url_for('admin_profile') }}">Profile</a></li>
                         <li><a href="">Manage Categories</a></li>
-                        <li><a href="">Add Books</a></li>
+                        <li><a href="{{ url_for('books') }}">Add Books</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('user_profile', username=session.user) }}">Profile</a></li>
-                        <li><a href="">Add Books</a></li>
+                        <li><a href="{{ url_for('books') }}">Add Books</a></li>
                         <li><a href="">Add Reviews</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}
@@ -50,11 +50,11 @@
                     {% if session.user == "admin" %}
                         <li><a href="{{ url_for('admin_profile') }}">Profile</a></li>
                         <li><a href="">Manage Categories</a></li>
-                        <li><a href="">Add Books</a></li>
+                        <li><a href="{{ url_for('books') }}">Add Books</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('user_profile', username=session.user) }}">Profile</a></li>
-                        <li><a href="">Add Books</a></li>
+                        <li><a href="{{ url_for('books') }}">Add Books</a></li>
                         <li><a href="">Add Reviews</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}
