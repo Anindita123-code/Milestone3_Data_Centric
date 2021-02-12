@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from flask_pymongo import PyMongo
-from datetime import date
+from datetime import datetime
 from bson.objectid import ObjectId
 
 from flask import (
@@ -30,6 +30,7 @@ def home():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    now = datetime.now()
     if request.method == "POST":
         user_exists = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -41,7 +42,8 @@ def register():
         new_user = {
             "username": request.form.get("username"),
             "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")
         }
         mongo.db.users.insert_one(new_user)
         # store in session variable
@@ -63,6 +65,7 @@ def login():
             if check_password_hash(
                     db_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
+
                 flash("Welcome {}".format(request.form.get(
                     "username").capitalize()))
             else:
@@ -81,10 +84,23 @@ def login():
 
 @app.route("/user_profile/<username>", methods=["GET", "POST"])
 def user_profile(username):
+    now = datetime.now()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    password = mongo.db.users.find_one(
+        {"username": session["user"]})["password"]
+    last_login = mongo.db.users.find_one(
+        {"username": session["user"]})["last_login"]
 
-    return render_template("user_profile.html", username=username)
+    # add the current login date time in the users collection
+    login_time = {
+        "username": session["user"].lower(),
+        "password": password,
+        "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")}
+    mongo.db.users.update({"username": session["user"].lower()}, login_time)
+
+    return render_template("user_profile.html", username=username,
+                            login_time=last_login)
 
 
 @app.route("/admin_profile", methods=["GET", "POST"])
@@ -105,7 +121,7 @@ def logout():
 @app.route('/add_books', methods=["GET", "POST"])
 def add_books():
     categories = mongo.db.categories.find()
-    today = date.today()
+    now = datetime.now()
     if request.method == "POST":
         db_book = mongo.db.books.find_one(
             {"book_name": request.form.get("book_name").lower()},
@@ -120,8 +136,9 @@ def add_books():
                         "author_name": request.form.get("author").lower(),
                         "image_url": request.form.get("image_url").lower(),
                         "description": request.form.get("description").lower(),
-                        "added_by": session["user"].lower()
-                        #"date_added": today
+                        "added_by": session["user"].lower(),
+                        "date_added": now.strftime(
+                            "%m/%d/%Y, %H:%M:%S")
                     }
             mongo.db.books.insert_one(newBook)
             flash("New Book Added Successfully!")

@@ -6,7 +6,7 @@
         <h5 class="center-align light-blue-text text-darken-4">
             Welcome {{ username.capitalize() }}<br>
         </h5>
-        <p class="center-align">You last logged in on : </p>
+        <p class="center-align">You last logged in on : {{ login_time }}</p>
     </div>
 </div>
 <a class="waves-effect waves-light btn" href="{{ url_for('get_books') }}">button</a>
