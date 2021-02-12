@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('select').formSelect();
-    $('#description').val('Optional');
     M.textareaAutoResize($('#description'));
 });
 

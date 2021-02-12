@@ -1,10 +1,13 @@
 import os
 from flask import Flask
 from flask_pymongo import PyMongo
+from datetime import date
 from bson.objectid import ObjectId
+
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+
 from werkzeug.security import (
     generate_password_hash, check_password_hash)
 
@@ -80,6 +83,7 @@ def login():
 def user_profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+
     return render_template("user_profile.html", username=username)
 
 
@@ -98,34 +102,75 @@ def logout():
     return render_template("home.html", categories=categories)
 
 
-@app.route('/books', methods=["GET", "POST"])
-def books():
+@app.route('/add_books', methods=["GET", "POST"])
+def add_books():
     categories = mongo.db.categories.find()
+    today = date.today()
     if request.method == "POST":
         db_book = mongo.db.books.find_one(
             {"book_name": request.form.get("book_name").lower()},
             {"author_name": request.form.get("author").lower()})
         if db_book:
             flash("This Book already exists in the database.")
-            return redirect('books')
+            return redirect('add_books')
         else:
             newBook = {
                         "category_name": request.form.get("category"),
                         "book_name": request.form.get("book_name").lower(),
                         "author_name": request.form.get("author").lower(),
                         "image_url": request.form.get("image_url").lower(),
-                        "description": request.form.get("description").lower()
+                        "description": request.form.get("description").lower(),
+                        "added_by": session["user"].lower()
+                        #"date_added": today
                     }
             mongo.db.books.insert_one(newBook)
             flash("New Book Added Successfully!")
+            if 'user' in session:
+                if session["user"].lower() == "admin":
+                    return redirect(url_for('admin_profile'))
+                elif len(session["user"]) >= 5:
+                    return redirect(url_for(
+                        'user_profile', username=session["user"]))
 
-    return render_template("books.html", categories=categories)
+    return render_template("add_books.html", categories=categories)
 
 
-@app.route("/get_categories")
-def get_categories():
+@app.route("/edit_books/<book_id>", methods=["GET", "POST"])
+def edit_books(book_id):
+    book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+
+    if request.method == "POST":
+        update = {
+            "category_name": request.form.get("category_name"),
+            "book_name": request.form.get("book_name"),
+            "author_name": request.form.get("author_name"),
+            "image_url": request.form.get("image_url"),
+            "description": request.form.get("description")
+        }
+        mongo.db.books.update({"_id": ObjectId(book_id)}, update)
+        flash("Book Updated Successfully")
+        return redirect(url_for('get_books'))
+
+    return render_template("edit_books.html", categories=categories, book=book)
+
+
+@app.route("/get_books", methods=["GET", "POST"])
+def get_books():
+    books = mongo.db.books.find()
+    return render_template("display_books.html", books=books)
+
+
+@app.route("/find_books/<category>", methods=["GET", "POST"])
+def find_books(category):
     categories = mongo.db.categories.find()
-    return render_template("", categories=categories)
+
+    if request.method == "POST":
+        books = mongo.db.books.find(
+            {"category_name": request.form.get("category")})
+        return redirect(url_for('get_books', books=books))
+
+    return render_template("find_books.html", categories=categories)
 
 
 if __name__ == "__main__":

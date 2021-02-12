@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+    <h5 class="center-align tagline-emphasis">Add New Books</h5>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_books') }}">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <select id="category" name="category" class="validate" required>
+                            <!-- <option value=""></option> -->
+                            {% for category in categories %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <label><span class="mandatory">*</span> Select Book Category / Genre </label>
+                    </div>
+                </div>
+                <div class="row">
+					<div class="input-field col s12 m8 offset-m2">
+						<!-- <i class="fas fa-user-edit prefix brown-text darken-4"></i> -->
+						<input id="book_name" name="book_name" minlength="8" maxlength="120" type="text" class="validate" required>
+						<label for="book_name"><span class="mandatory">*</span> Book Name</label>
+					</div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+						<!-- <i class="fas fa-user-lock prefix brown-text darken-4"></i> -->
+                        <input id="author" name="author" minlength="8" maxlength="50" type="text" class="validate" required>
+						<label for="author"><span class="mandatory">*</span> Author</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+						<!-- <i class="fas fa-user-lock prefix brown-text darken-4"></i> -->
+                        <input id="image_url" name="image_url" type="text">
+						<label for="image_url">Book Image Url (Optional) </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <textarea id="description" name="description" class="materialize-textarea"></textarea>
+                        <label for="description">Description of the Book (Optional)</label>
+                    </div>
+                </div>
+                <!-- Add New Book -->
+                <div class="row">
+                    <button type="submit" class="col s12 m8 offset-m2 btn-large lime darken-4">
+                        Add New Book 
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

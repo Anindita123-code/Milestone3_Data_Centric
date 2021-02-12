@@ -90,6 +90,25 @@ h5{
     background-size: 115px;
 }
 
+.card .card-title {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.material-icons {
+    font-size: 18px;
+}
+.btn-small{
+    margin: 5px;
+}
+
+.padding{
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
 @media only screen and (min-width: 601px)
 {
     nav .brand-logo 
