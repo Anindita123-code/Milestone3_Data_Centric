@@ -135,8 +135,8 @@ def add_books():
     return render_template("add_books.html", categories=categories)
 
 
-@app.route("/edit_books/<book_id>", methods=["GET", "POST"])
-def edit_books(book_id):
+@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
+def edit_book(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
 
@@ -146,13 +146,21 @@ def edit_books(book_id):
             "book_name": request.form.get("book_name"),
             "author_name": request.form.get("author_name"),
             "image_url": request.form.get("image_url"),
-            "description": request.form.get("description")
+            "description": request.form.get("description"),
+            "added_by": session["user"]
         }
         mongo.db.books.update({"_id": ObjectId(book_id)}, update)
         flash("Book Updated Successfully")
         return redirect(url_for('get_books'))
 
     return render_template("edit_books.html", categories=categories, book=book)
+
+
+@app.route('/delete_book/<book_id>')
+def delete_book(book_id):
+    mongo.db.books.remove({"_id": ObjectId(book_id)})
+    flash("Book Deleted Successfully")
+    return render_template("display_books.html")
 
 
 @app.route("/get_books", methods=["GET", "POST"])
