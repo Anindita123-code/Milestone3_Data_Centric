@@ -85,6 +85,7 @@ def login():
 @app.route("/user_profile/<username>", methods=["GET", "POST"])
 def user_profile(username):
     now = datetime.now()
+    books = mongo.db.books.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     password = mongo.db.users.find_one(
@@ -99,8 +100,9 @@ def user_profile(username):
         "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")}
     mongo.db.users.update({"username": session["user"].lower()}, login_time)
 
-    return render_template("user_profile.html", username=username,
-                            login_time=last_login)
+    return render_template(
+        "user_profile.html", username=username,
+        login_time=last_login, books=books)
 
 
 @app.route("/admin_profile", methods=["GET", "POST"])
@@ -184,6 +186,28 @@ def delete_book(book_id):
 def get_books():
     books = mongo.db.books.find()
     return render_template("display_books.html", books=books)
+
+
+@app.route("/add_reviews/<book>", methods=["GET", "POST"])
+def add_reviews(book):
+    today = datetime.now()
+    reviews = mongo.db.reviews.find({"book_name": book})
+    image_url = mongo.db.books.find_one({"book_name": book})["image_url"]
+    author = mongo.db.books.find_one({"book_name": book})["author_name"]
+
+    if request.method == "POST":
+        new_review = {"book_name": book,
+                        "author_name": author,
+                        "review_description": request.form.get("review_description"),
+                        "added_by": session["user"],
+                        "added_date": today.strftime("%m/%d/%Y, %H:%M:%S")}
+
+        mongo.db.reviews.insert_one(new_review)
+        flash("Review added successfully!")
+    
+    return render_template(
+        "add_reviews.html", reviews=reviews, image_url=image_url,
+        book=book, author=author)
 
 
 @app.route("/find_books/<category>", methods=["GET", "POST"])

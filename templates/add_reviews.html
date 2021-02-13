@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <h5 class="center-align tagline-emphasis">Book Reviews</h5>
+    <div class="container row">
+        <div class="col s4 m4 center-align">
+            <img class="responsive-img" width="255" height="300" src="{{ image_url }}" alt="Image for book front cover">
+            <p>{{ book }} <em>by {{ author }}</em></p>
+        </div>
+        
+        <div class="col s8 m8 center">
+            <div class="row">
+            <form method="POST" action="{{ url_for('add_reviews', book=book, author=author) }}" >
+                <div class="input-field col s12 m12 left-align">
+                     <textarea id="review_description" name="review_description" class="materialize-textarea"></textarea>
+                        <label for="review_description">Your Review Here</label>
+                
+                <button type="submit" class="btn-small left-align lime darken-4">Add Review</button></div>
+            </form>
+            </div>
+            {% for review in reviews %}
+            <div class="card-panel row">
+                <p>{{ review.review_description }}</p>
+                <div class="left-align"><em>added by: {{ review.added_by.capitalize() }}</em></div>
+                <div class="left-align"><em>added on: {{ review.added_date }}</em></div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+{% endblock %}
