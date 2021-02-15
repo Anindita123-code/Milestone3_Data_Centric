@@ -1,8 +1,10 @@
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('select').formSelect();
-    M.textareaAutoResize($('#description'));
+    //M.textareaAutoResize($('#description'));
+     $('.modal').modal();
 });
+
 
 // function validate(){
 //     if(document.getElementById('category').value == ''){

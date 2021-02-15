@@ -6,17 +6,17 @@
             <div class="card-panel">
                
                 <div class="row">
-                    <div class="col s12 m4"><img src="{{ image_url }}" width="200" height="300"> <em><br> {{ book }} <br> {{ author }}</em></div>
+                    <div class="col s12 m4 center-align"><img src="{{ image_url }}" width="200" height="300"> <em><br> {{ book }} <br> {{ author }}</em></div>
                     <div class="col s12 m8">
                         <div class="row center-align last-texts">
-                            Last updated on {{ review.added_date}}
+                            <br>Last updated on {{ review.added_date }}
                         </div>
-                        <label for="review">Your review <em>(Max 400 words)</em></label>
-                        <div class="row">
-                           
-                            <textarea id="review" rows="10" cols="20" name="review" value="test" maxlength="400">{{ review.review_description }}</textarea>
+                        <label for="review">Your review <em>(Max 400 words)</em></label><br><br>
+                        <div class="row"> 
+                            <div class="col s12 m8 offset-m2">
+                                 <textarea id="review" name="review" maxlength="400">{{ review.review_description }}</textarea>
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
                 <div class="row">

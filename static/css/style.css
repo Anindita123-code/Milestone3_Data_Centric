@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap');
 
 nav {
     color: #02233B;;
@@ -11,6 +11,7 @@ nav {
     font-weight: 300;
     color: #123456;
     line-height: 40px;
+    letter-spacing: 2px;
 }
 
 .tagline-emphasis {
@@ -115,9 +116,13 @@ textarea {
   border: 1px solid #888; 
   overflow: auto;
   resize: none;
+  height: 140px;
   /* font-family: 'Oswald'; */
   font-size: 15px;
 }
+
+
+
 @media only screen and (min-width: 601px)
 {
     nav .brand-logo 

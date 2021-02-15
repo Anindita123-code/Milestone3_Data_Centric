@@ -179,7 +179,8 @@ def edit_book(book_id):
 def delete_book(book_id):
     mongo.db.books.remove({"_id": ObjectId(book_id)})
     flash("Book Deleted Successfully")
-    return render_template("display_books.html")
+    books = mongo.db.books.find()
+    return render_template("display_books.html", books=books)
 
 
 @app.route("/get_books", methods=["GET", "POST"])
@@ -261,6 +262,11 @@ def edit_review(review_id):
     return render_template(
         "edit_reviews.html", book=book, author=author,
         review=review, image_url=image_url)
+
+
+@app.route("/modal")
+def modal():
+    return render_template("modal.html")
 
 
 @app.route("/find_books/<category>", methods=["GET", "POST"])
