@@ -11,8 +11,8 @@
             <div class="row">
             <form method="POST" action="{{ url_for('add_reviews', book=book, author=author) }}" >
                 <div class="input-field col s12 m12 left-align">
-                     <textarea id="review_description" name="review_description" class="materialize-textarea"></textarea>
-                        <label for="review_description">Your Review Here</label>
+                     <textarea id="review_description" name="review_description" class="materialize-textarea" maxlength="400" required></textarea>
+                        <label for="review_description">Your Review Here <em>(max 400 words)</em></label>
                 
                 <button type="submit" class="btn-small left-align lime darken-4">Add Review</button></div>
             </form>
@@ -22,7 +22,15 @@
                 <p>{{ review.review_description }}</p>
                 <div class="left-align"><em>added by: {{ review.added_by.capitalize() }}</em></div>
                 <div class="left-align"><em>added on: {{ review.added_date }}</em></div>
-            </div>
+                {% if review.added_by|lower == session.user|lower %}
+                    <div class="right-align"><a class="waves-effect waves-light btn-small grey" 
+                        href="{{ url_for('delete_review', review_id=review._id) }}"><i class="fas fa-trash-alt"></i></a>
+
+                        <a class="waves-effect waves-light btn-small grey " 
+                            href="{{ url_for('edit_review', review_id=review._id) }}"><i class="fas fa-edit"></i></a></div>
+                        
+                {% endif %}
+                </div>
             {% endfor %}
           </div>
     </div>

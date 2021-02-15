@@ -109,6 +109,15 @@ h5{
     padding-right: 30px;
     padding-bottom: 30px;
 }
+
+textarea {
+  background: rgba(128, 128, 128, 0.185); 
+  border: 1px solid #888; 
+  overflow: auto;
+  resize: none;
+  /* font-family: 'Oswald'; */
+  font-size: 15px;
+}
 @media only screen and (min-width: 601px)
 {
     nav .brand-logo 

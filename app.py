@@ -198,16 +198,69 @@ def add_reviews(book):
     if request.method == "POST":
         new_review = {"book_name": book,
                         "author_name": author,
-                        "review_description": request.form.get("review_description"),
+                        "review_description": request.form.get(
+                            "review_description"),
                         "added_by": session["user"],
-                        "added_date": today.strftime("%m/%d/%Y, %H:%M:%S")}
+                        "added_date": today.strftime("%m/%d/%Y, %H:%M:%S"),
+                        "is_featured": 0}
 
         mongo.db.reviews.insert_one(new_review)
         flash("Review added successfully!")
-    
+
     return render_template(
         "add_reviews.html", reviews=reviews, image_url=image_url,
         book=book, author=author)
+
+
+@app.route('/delete_review/<review_id>')
+def delete_review(review_id):
+    book = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})["book_name"]
+    image_url = mongo.db.books.find_one({"book_name": book})["image_url"]
+    author = mongo.db.books.find_one({"book_name": book})["author_name"]
+
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Review Removed Successfully!")
+
+    reviews = mongo.db.reviews.find({"book_name": book})
+
+    return render_template(
+        "add_reviews.html", book=book, author=author,
+        reviews=reviews, image_url=image_url)
+
+
+@app.route('/edit_review/<review_id>', methods=["GET", "POST"])
+def edit_review(review_id):
+    today = datetime.now()
+    book = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})["book_name"]
+    review = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})
+    is_featured = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})["is_featured"]
+    image_url = mongo.db.books.find_one({"book_name": book})["image_url"]
+    author = mongo.db.books.find_one({"book_name": book})["author_name"]
+
+    if request.method == "POST":
+        edited = {
+                    "book_name": book,
+                    "author_name": author,
+                    "review_description": request.form.get(
+                        "review"),
+                    "added_by": session["user"],
+                    "added_date": today.strftime("%m/%d/%Y, %H:%M:%S"),
+                    "is_featured": is_featured}
+
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, edited)
+        flash("Review Edited Successfully!")
+
+        reviews = mongo.db.reviews.find({"book_name": book})
+
+        return redirect(url_for(
+            'add_reviews', book=book, author=author,
+            reviews=reviews, image_url=image_url))
+
+    return render_template(
+        "edit_reviews.html", book=book, author=author,
+        review=review, image_url=image_url)
 
 
 @app.route("/find_books/<category>", methods=["GET", "POST"])
