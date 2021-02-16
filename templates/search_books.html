@@ -1,0 +1,22 @@
+
+    <div class="row">
+        <form class="col s12 card-panel orange lighten-5" method="POST">
+            <h5>Search</h5>
+            <div class="input-field col s5">
+                <select>
+                    <option value="" disabled selected>Select Categories...</option>
+                    {% for category in search_categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-field col s5">
+                <input placeholder="Search Text" id="Search" name="search" type="text" class="validate">
+            </div>
+            <div class="col s2">
+                <button class="btn brown darken-1" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>

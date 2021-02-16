@@ -4,8 +4,9 @@
 <h5 class="center-align tagline-emphasis">Books List</h5>
 <div class="container row">
     
-
-    <!-- <div class="row">
+                
+    <!-- pagination -->
+    <div class="row">
         <div class="col s12 m12">
             <ul class="pagination">
                 <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
@@ -17,10 +18,8 @@
                 <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
             </ul>
         </div>
-    </div> -->
+    </div> 
 
-
-    
         {% for book in books %}
             <div class="col s12 m3 l3">
                 <div class="card">
@@ -29,7 +28,7 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">{{ book.book_name }}<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">Review..</a></p>
+                        <p><a href="{{ url_for('add_reviews', book=book.book_name) }}">Check Reviews..</a></p>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4"><i class="material-icons left">close</i>{{ book.book_name }}</span>
@@ -60,7 +59,8 @@
 
             </div>        
         {% endfor %}
-       
+   <!-- search section -->
+    {% include 'search_books.html' %}
 </div>    
     
 {% endblock %}

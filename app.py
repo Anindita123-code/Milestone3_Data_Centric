@@ -22,10 +22,16 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 @app.route("/")
-@app.route("/home")
+@app.route("/home", methods=["GET", "POST"])
 def home():
     categories = mongo.db.categories.find()
-    return render_template("home.html", categories=categories)
+    home_search_cat = mongo.db.categories.find()
+
+    if request.method == "POST":
+        return redirect(url_for('get_books'))
+
+    return render_template(
+        "home.html", categories=categories, search_categories=home_search_cat)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -185,8 +191,12 @@ def delete_book(book_id):
 
 @app.route("/get_books", methods=["GET", "POST"])
 def get_books():
+    categories = mongo.db.categories.find()
+    home_search_cat = mongo.db.categories.find()
     books = mongo.db.books.find()
-    return render_template("display_books.html", books=books)
+    return render_template(
+        "display_books.html", categories=categories,
+        search_categories=home_search_cat, books=books)
 
 
 @app.route("/add_reviews/<book>", methods=["GET", "POST"])
@@ -264,21 +274,17 @@ def edit_review(review_id):
         review=review, image_url=image_url)
 
 
-@app.route("/modal")
-def modal():
-    return render_template("modal.html")
-
-
-@app.route("/find_books/<category>", methods=["GET", "POST"])
-def find_books(category):
+@app.route("/search", methods=["GET", "POST"])
+def search():
     categories = mongo.db.categories.find()
 
     if request.method == "POST":
+
         books = mongo.db.books.find(
             {"category_name": request.form.get("category")})
         return redirect(url_for('get_books', books=books))
 
-    return render_template("find_books.html", categories=categories)
+    return render_template("display_books.html", categories=categories)
 
 
 if __name__ == "__main__":
