@@ -1,17 +1,19 @@
-
-    <div class="row">
-        <form class="col s12 card-panel orange lighten-5" method="POST">
+{% extends "base.html" %}
+{% block content %}
+<h5 class="center-align tagline-emphasis">Search Books</h5>
+    <div class="row container">
+        <form class="col s12 card-panel orange lighten-5" method="POST" action="{{ url_for('filtered_books') }}">
             <h5>Search</h5>
             <div class="input-field col s5">
-                <select>
-                    <option value="" disabled selected>Select Categories...</option>
+                <select id="category" name="category">
+                    <option value="none" disabled selected> Select Categories</option>
                     {% for category in search_categories %}
                     <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endfor %}
                 </select>
             </div>
             <div class="input-field col s5">
-                <input placeholder="Search Text" id="Search" name="search" type="text" class="validate">
+                <input placeholder="Search Text" id="keywords" name="keywords" type="text" class="validate">
             </div>
             <div class="col s2">
                 <button class="btn brown darken-1" type="submit">
@@ -20,3 +22,4 @@
             </div>
         </form>
     </div>
+{% endblock %}

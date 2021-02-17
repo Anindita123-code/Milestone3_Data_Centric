@@ -189,16 +189,6 @@ def delete_book(book_id):
     return render_template("display_books.html", books=books)
 
 
-@app.route("/get_books", methods=["GET", "POST"])
-def get_books():
-    categories = mongo.db.categories.find()
-    home_search_cat = mongo.db.categories.find()
-    books = mongo.db.books.find()
-    return render_template(
-        "display_books.html", categories=categories,
-        search_categories=home_search_cat, books=books)
-
-
 @app.route("/add_reviews/<book>", methods=["GET", "POST"])
 def add_reviews(book):
     today = datetime.now()
@@ -274,17 +264,55 @@ def edit_review(review_id):
         review=review, image_url=image_url)
 
 
+@app.route("/get_books", methods=["GET", "POST"])
+def get_books():
+    categories = mongo.db.categories.find()
+    home_search_cat = mongo.db.categories.find()
+    books = mongo.db.books.find()
+    return render_template(
+        "display_books.html", categories=categories,
+        search_categories=home_search_cat, books=books)
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     categories = mongo.db.categories.find()
 
     if request.method == "POST":
+        return redirect(url_for('filtered_books'))
 
-        books = mongo.db.books.find(
-            {"category_name": request.form.get("category")})
-        return redirect(url_for('get_books', books=books))
+    return render_template("search.html", search_categories=categories)
 
-    return render_template("display_books.html", categories=categories)
+
+@app.route("/filtered_books", methods=["GET", "POST"])
+def filtered_books():
+    categories = mongo.db.categories.find()
+    if request.method == "POST":
+        category = request.form.get("category")
+        keywords = request.form.get("keywords")
+
+        if not category and keywords == "":
+            books = mongo.db.books.find()
+        else:
+            if category and keywords == "":
+                query = {"category_name": category}
+
+            if category and keywords != "":
+                query = {{'category_name': category}, '$or:' [
+                    {'book_name': keywords, 'author_name': keywords}]}
+
+            if not category and keywords != "":
+                query = {'$or:' [{'book_name': keywords,
+                                  'author_name': keywords}]}
+
+            books = mongo.db.books.find(query)
+        if books.count() == 0:
+            flash("Your search did not find any mathing records")
+        else:
+            flash("Your search returned {} Record(s)".format(books.count()))
+
+    return render_template("display_books.html",
+                           books=books, search_categories=categories)
 
 
 if __name__ == "__main__":
