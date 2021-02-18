@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block  content %}
 
-<h5 class="center-align tagline-emphasis">Books List</h5>
+<h5 class="center-align tagline-emphasis">Books List - {{ session.user }}</h5>
 <div class="container row">
     
                 
@@ -36,25 +36,27 @@
                         <p>Author: {{ book.author_name }} </p>
                         <p> {{ book.description }}</p>
                     </div>
-                    {% if book.added_by|lower == session.user|lower %}
-                       <!-- Modal Trigger -->
-                        <div class="center-align">
-                            <button data-target="modal1" class="btn-small brown accent-4 modal-trigger"><i class="fas fa-trash-alt"></i></button>
-                            <button href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small brown accent-4"><i class="fas fa-edit"></i></button>
-                        </div>
-                        <!-- Modal Structure -->
-                        <div id="modal1" class="modal">
-                            <div class="modal-content">
-                                <h5>Delete Record</h5>
-                                <p>This record will be deleted Permanently, do you wish to continue?</p>
+                    {% if not session.user  %}
+                        {%  if book.added_by|lower == session.user|lower %}
+                            <!-- Modal Trigger -->
+                            <div class="center-align">
+                                <button data-target="modal1" class="btn-small brown accent-4 modal-trigger"><i class="fas fa-trash-alt"></i></button>
+                                <button href="{{ url_for('edit_book', book_id=book._id) }}" class="btn-small brown accent-4"><i class="fas fa-edit"></i></button>
                             </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
-                                <a href="{{ url_for('delete_book', book_id=book._id) }}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                            <!-- Modal Structure -->
+                            <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                    <h5>Delete Record</h5>
+                                    <p>This record will be deleted Permanently, do you wish to continue?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+                                    <a href="{{ url_for('delete_book', book_id=book._id) }}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                                </div>
                             </div>
-                        </div>
 
-                    {% endif %}
+                        {% endif %}
+                    {%  endif  %}
                     </div>
 
             </div>        

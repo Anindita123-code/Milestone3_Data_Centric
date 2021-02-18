@@ -307,12 +307,19 @@ def filtered_books():
 
             books = mongo.db.books.find(query)
         if books.count() == 0:
-            flash("Your search did not find any mathing records")
+            flash("Your search did not find any matching records")
         else:
             flash("Your search returned {} Record(s)".format(books.count()))
 
     return render_template("display_books.html",
                            books=books, search_categories=categories)
+
+
+@app.route('/category_list/<category>')
+def category_list(category):
+    books = mongo.db.books.find({"category_name": category})
+    flash("{} Book(s) found under {} category".format(books.count(), category))
+    return render_template("display_books.html", books=books)
 
 
 if __name__ == "__main__":
