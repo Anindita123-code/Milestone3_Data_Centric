@@ -113,7 +113,24 @@ def user_profile(username):
 
 @app.route("/admin_profile", methods=["GET", "POST"])
 def admin_profile():
-    return render_template("admin_profile.html")
+    now = datetime.now()
+    books = mongo.db.books.find()
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    password = mongo.db.users.find_one(
+        {"username": session["user"]})["password"]
+    last_login = mongo.db.users.find_one(
+        {"username": session["user"]})["last_login"]
+
+    # add the current login date time in the users collection
+    login_time = {
+        "username": session["user"].lower(),
+        "password": password,
+        "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")}
+    mongo.db.users.update({"username": session["user"].lower()}, login_time)
+
+    return render_template("admin_profile.html", username=username,
+                           login_time=last_login, books=books)
 
 
 @app.route("/logout")
@@ -320,6 +337,11 @@ def category_list(category):
     books = mongo.db.books.find({"category_name": category})
     flash("{} Book(s) found under {} category".format(books.count(), category))
     return render_template("display_books.html", books=books)
+
+
+@app.route('/find', methods=["GET", "POST"])
+def find():
+    return render_template("admin_profile.html")
 
 
 if __name__ == "__main__":

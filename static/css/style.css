@@ -101,9 +101,16 @@ h5{
 .material-icons {
     font-size: 18px;
 }
+
+
 .btn-small{
     margin: 5px;
 }
+
+#btn-search-review-admin {
+    margin-top: 20px;
+}
+
 #homeCategories .btn{
     margin: 1px 1px;
     letter-spacing: -1px;

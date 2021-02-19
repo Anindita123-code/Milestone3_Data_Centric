@@ -1,16 +1,17 @@
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('select').formSelect();
-    //M.textareaAutoResize($('#description'));
-     $('.modal').modal();
+    $('.modal').modal();
+    $('.datepicker').datepicker();
+    $(".datepicker").datepicker({
+        format: "dd mmmm, yyyy",
+        yearRange: 3,
+        showClearBtn: true,
+        i18n: {
+            done: "Select"
+        }
+    });
 });
 
 
-// function validate(){
-//     if(document.getElementById('category').value == ''){
-//         return 0
-//     }else{
-//         return 1
-//     }
-// }
 
