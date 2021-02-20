@@ -219,7 +219,7 @@ def add_reviews(book):
                         "review_description": request.form.get(
                             "review_description"),
                         "added_by": session["user"],
-                        "added_date": today.strftime("%m/%d/%Y, %H:%M:%S"),
+                        "added_date": today.strftime("%m/%d/%Y"),
                         "is_featured": 0}
 
         mongo.db.reviews.insert_one(new_review)
@@ -341,6 +341,16 @@ def category_list(category):
 
 @app.route('/find', methods=["GET", "POST"])
 def find():
+    if request.method == "POST":
+        reviews = mongo.db.reviews.find({
+            "added_date": request.form.get('review_date')
+        })
+        if reviews.count():
+            flash("Your search returned {} Result(s)".format(reviews.count()))
+            return render_template("admin_profile.html", reviews=reviews)
+        else:
+            flash("Your search returned 0 Result(s)")
+
     return render_template("admin_profile.html")
 
 
