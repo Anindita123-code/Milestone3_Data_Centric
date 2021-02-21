@@ -30,21 +30,39 @@
 </div>
 <div class="container row">
 {% for review in reviews %}
-  <div class="row">
-    <div class="col s12 m8">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">{{ review.book_name }}</span>
-          <span class="card-title">{{ review.author_name }}</span>
-          <p>{{ review.review_description }}</p>
+ 
+    <div class="col s12 m3 l3">
+      <div class="card orange lighten-4">
+        <div class="card-content ">
+          <span class="card-title book-name deep-orange-text text-darken-4"><strong>{{ review.book_name }}</strong></span>
+          <span class="card-subtitle"> <em>Author: {{ review.author_name }}</em></span>
+          <p> <strong><br>Review: </strong>{{ review.review_description }}</p>
+            <span><em>by:{{ review.added_by }}</em></span>
         </div>
-        <div class="card-action">
-          <span>{{ review.added_by }}</span>
-          <a href="#">This is a link</a>
-        </div>
+        <form method="POST" action="{{ url_for('featured_review', review_id=review._id) }}" class="card-action light-blue-text text-darken-4">Featured Review 
+          <!-- Switch -->
+           
+                <div class="switch">
+                    <label for="is_featured">
+                        No
+                        {% if review.is_featured == 1 %}
+                            <input type="checkbox" name="is_featured" id="is_featured" checked>
+                            <span class="lever"></span>
+                        {% else %}
+                            <input type="checkbox" name="is_featured" id="is_featured">
+                            <span class="lever"></span>
+                        {% endif %}
+                    Yes
+                </label>
+    
+                <button type="submit" class="btn-small light-blue darken-4">
+                    <i class="fas fa-save"></i></button>
+            </div>
+            
+        </form>
       </div>
     </div>
-  </div>    
-</div>   
+   
 {% endfor %}
+
 {% endblock %}

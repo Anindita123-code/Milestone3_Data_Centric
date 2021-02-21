@@ -281,6 +281,42 @@ def edit_review(review_id):
         review=review, image_url=image_url)
 
 
+@app.route("/featured_review/<review_id>", methods=["GET", "POST"])
+def featured_review(review_id):
+    if request.method == "POST":
+        is_featured = 1 if request.form.get("is_featured") else 0
+        book = mongo.db.reviews.find_one(
+            {"_id": ObjectId(review_id)})["book_name"]
+        review = mongo.db.reviews.find_one(
+            {"_id": ObjectId(review_id)})["review_description"]
+        author = mongo.db.reviews.find_one(
+            {"_id": ObjectId(review_id)})["author_name"]
+        added_by = mongo.db.reviews.find_one(
+            {"_id": ObjectId(review_id)})["added_by"]
+        added_date = mongo.db.reviews.find_one(
+            {"_id": ObjectId(review_id)})["added_date"]
+
+        featured_review = {
+                    "book_name": book,
+                    "author_name": author,
+                    "review_description": review,
+                    "added_by": added_by,
+                    "added_date": added_date,
+                    "is_featured": is_featured}
+
+        # reset all featured review
+        mongo.db.reviews.update(
+            {"is_featured": "1"},
+            {"$set": {"is_featured": "0"}}
+        )
+        # set the new featured review
+        mongo.db.reviews.update(
+            {"_id": ObjectId(review_id)}, featured_review)
+        flash("Review Featured Successfully!")
+
+    return render_template("admin_profile.html")
+
+
 @app.route("/get_books", methods=["GET", "POST"])
 def get_books():
     categories = mongo.db.categories.find()
