@@ -113,7 +113,7 @@ h5{
 
 #homeCategories .btn{
     margin: 1px 1px;
-    letter-spacing: -1px;
+    letter-spacing: 0px;
 }
 
 .card .card-content .card-title .book-name{

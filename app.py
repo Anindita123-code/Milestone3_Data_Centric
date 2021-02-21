@@ -26,12 +26,15 @@ mongo = PyMongo(app)
 def home():
     categories = mongo.db.categories.find()
     home_search_cat = mongo.db.categories.find()
+    featured_review = mongo.db.reviews.find({"is_featured": 1})
 
     if request.method == "POST":
         return redirect(url_for('get_books'))
 
     return render_template(
-        "home.html", categories=categories, search_categories=home_search_cat)
+        "home.html", categories=categories,
+        search_categories=home_search_cat,
+        featured_review=featured_review)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -114,7 +117,7 @@ def user_profile(username):
 @app.route("/admin_profile", methods=["GET", "POST"])
 def admin_profile():
     now = datetime.now()
-    books = mongo.db.books.find()
+    featured_review = mongo.db.reviews.find({"is_featured": 1})
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     password = mongo.db.users.find_one(
@@ -130,7 +133,8 @@ def admin_profile():
     mongo.db.users.update({"username": session["user"].lower()}, login_time)
 
     return render_template("admin_profile.html", username=username,
-                           login_time=last_login, books=books)
+                           login_time=last_login, 
+                           featured_review=featured_review)
 
 
 @app.route("/logout")
@@ -163,7 +167,7 @@ def add_books():
                         "description": request.form.get("description").lower(),
                         "added_by": session["user"].lower(),
                         "date_added": now.strftime(
-                            "%m/%d/%Y, %H:%M:%S")
+                            "%m/%d/%Y")
                     }
             mongo.db.books.insert_one(newBook)
             flash("New Book Added Successfully!")
@@ -264,7 +268,7 @@ def edit_review(review_id):
                     "review_description": request.form.get(
                         "review"),
                     "added_by": session["user"],
-                    "added_date": today.strftime("%m/%d/%Y, %H:%M:%S"),
+                    "added_date": today.strftime("%m/%d/%Y"),
                     "is_featured": is_featured}
 
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, edited)
@@ -283,38 +287,40 @@ def edit_review(review_id):
 
 @app.route("/featured_review/<review_id>", methods=["GET", "POST"])
 def featured_review(review_id):
-    if request.method == "POST":
-        is_featured = 1 if request.form.get("is_featured") else 0
-        book = mongo.db.reviews.find_one(
-            {"_id": ObjectId(review_id)})["book_name"]
-        review = mongo.db.reviews.find_one(
-            {"_id": ObjectId(review_id)})["review_description"]
-        author = mongo.db.reviews.find_one(
-            {"_id": ObjectId(review_id)})["author_name"]
-        added_by = mongo.db.reviews.find_one(
-            {"_id": ObjectId(review_id)})["added_by"]
-        added_date = mongo.db.reviews.find_one(
-            {"_id": ObjectId(review_id)})["added_date"]
 
-        featured_review = {
-                    "book_name": book,
-                    "author_name": author,
-                    "review_description": review,
-                    "added_by": added_by,
-                    "added_date": added_date,
-                    "is_featured": is_featured}
+    book = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})["book_name"]
+    review = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})["review_description"]
+    author = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})["author_name"]
+    added_by = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})["added_by"]
+    added_date = mongo.db.reviews.find_one(
+        {"_id": ObjectId(review_id)})["added_date"]
 
-        # reset all featured review
-        mongo.db.reviews.update(
-            {"is_featured": "1"},
-            {"$set": {"is_featured": "0"}}
-        )
-        # set the new featured review
-        mongo.db.reviews.update(
-            {"_id": ObjectId(review_id)}, featured_review)
-        flash("Review Featured Successfully!")
+    featured_review = {
+                "book_name": book,
+                "author_name": author,
+                "review_description": review,
+                "added_by": added_by,
+                "added_date": added_date,
+                "is_featured": 1}
 
-    return render_template("admin_profile.html")
+    # reset all featured review
+    mongo.db.reviews.update(
+        {"is_featured": 1},
+        {"$set": {"is_featured": 0}}
+
+    )
+    # set the new featured review
+    mongo.db.reviews.update(
+        {"_id": ObjectId(review_id)},
+        {"$set": {"is_featured": 1}})
+
+    flash("Review Featured Successfully!")
+
+    return redirect(url_for('admin_profile'))
 
 
 @app.route("/get_books", methods=["GET", "POST"])

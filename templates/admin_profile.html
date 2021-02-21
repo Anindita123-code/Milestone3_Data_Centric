@@ -9,11 +9,26 @@
         <p class="center-align">You last logged in on : {{ login_time }}</p>
     </div>
 </div>
-        
 <div class="container row">
-    <h5 class="left-align brown-text text-darken-1">
-        Search Reviews <br>
-    </h5>
+    {% for review in featured_review %}
+    <div class="col s12 m8 offset-m2">
+        <strong>Current Featured Review :</strong>
+        <div class="card orange lighten-4">
+            <div class="card-content">
+                <span class="card-title book-name deep-orange-text text-darken-4"><strong>{{ review.book_name }}</strong></span>
+                <span class="card-subtitle"> <em>Author: {{ review.author_name }}</em></span>
+                <p> <strong><br>Review: </strong>{{ review.review_description }}</p>
+                    <span><em>by:{{ review.added_by }}</em></span>
+                    <span><em>on:{{ review.added_date }}</em></span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="container row">
+    <span class="col s12 m8 offset-m2 brown-text text-darken-1">
+        <strong>Search Reviews </strong><br>
+    </span>
 </div>    
 <div class="container row">
     <form class="col s12 m12 offset-m4 padding" method="POST" action="{{ url_for('find') }}">
@@ -28,7 +43,9 @@
             </button>
     </form>
 </div>
+
 <div class="container row">
+
 {% for review in reviews %}
  
     <div class="col s12 m3 l3">
@@ -39,30 +56,30 @@
           <p> <strong><br>Review: </strong>{{ review.review_description }}</p>
             <span><em>by:{{ review.added_by }}</em></span>
         </div>
-        <form method="POST" action="{{ url_for('featured_review', review_id=review._id) }}" class="card-action light-blue-text text-darken-4">Featured Review 
+        <div class="card-action light-blue-text text-darken-4">Featured Review 
           <!-- Switch -->
            
                 <div class="switch">
-                    <label for="is_featured">
+                    <label for="featured_{{ review._id }}">
                         No
                         {% if review.is_featured == 1 %}
-                            <input type="checkbox" name="is_featured" id="is_featured" checked>
+                            <input type="checkbox" name="featured_{{ review._id}}" id="featured_{{ review._id }}" checked>
                             <span class="lever"></span>
                         {% else %}
-                            <input type="checkbox" name="is_featured" id="is_featured">
+                            <input type="checkbox" name="featured_{{ review._id}}" id="featured_{{ review._id }}">
                             <span class="lever"></span>
                         {% endif %}
                     Yes
                 </label>
-    
-                <button type="submit" class="btn-small light-blue darken-4">
-                    <i class="fas fa-save"></i></button>
+                <a href="{{ url_for('featured_review', review_id=review._id) }}" class="btn-small light-blue darken-4"><i class="fas fa-save"></i></a>
+                <!-- <button type="submit" class="btn-small light-blue darken-4">
+                    <i class="fas fa-save"></i></button> -->
             </div>
             
-        </form>
+        </div>
       </div>
     </div>
    
 {% endfor %}
-
+</div>
 {% endblock %}

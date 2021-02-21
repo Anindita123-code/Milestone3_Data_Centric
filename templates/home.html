@@ -26,20 +26,21 @@
                     
                 </div>
                 <div class="col s12 m12 l6">
+                    {% for review in featured_review %}
                     <div class="card">
-                        <div class="card-content  orange lighten-4">
-                        <span class="card-title">Featured Review</span>
-                        <p> -- Review Text and Image --- 
-                            I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.
-                            I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively
-                            I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively
-                        </p>
-                        <span> <a href="">Read More...</a></span>
+                        <div class="card-content orange lighten-4">
+                        <span class="card-title deep-orange-text text-darken-4">Featured Review</span>
+                        <span class="card-subtitle"><strong>{{ review.book_name }}</strong>
+                        <em> | Author: {{ review.author_name }}</em>
+                        </span>
+                        <strong><br>Review: </strong>{{ review.review_description }}</p>
+                            <span><em>by:{{ review.added_by }}</em></span>
+                            <span><em>on:{{ review.added_date }}</em></span>
+                            
+                        <span> <a href="{{ url_for('add_reviews', book=review.book_name) }}">Read More...</a></span>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
             <!-- search section -->
