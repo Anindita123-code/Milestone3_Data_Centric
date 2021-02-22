@@ -325,12 +325,12 @@ def featured_review(review_id):
 
 @app.route("/get_books", methods=["GET", "POST"])
 def get_books():
-    categories = mongo.db.categories.find()
-    home_search_cat = mongo.db.categories.find()
+    categories = list(mongo.db.categories.find())
+    # home_search_cat = mongo.db.categories.find()
     books = mongo.db.books.find()
     return render_template(
         "display_books.html", categories=categories,
-        search_categories=home_search_cat, books=books)
+        search_categories=categories, books=books)
 
 
 @app.route("/search", methods=["GET", "POST"])
