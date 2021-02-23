@@ -71,7 +71,8 @@ For some/all of your features, you may choose to reference the specific project 
 In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- Another feature idea
+- Pagination for search results 
+- Ratings for the reviews 
 
 ## Technologies Used
 
@@ -191,6 +192,7 @@ Once this is done, the Project can be run from the local using the following com
 * For creating the sitemap I have used [Gloomaps](https://www.gloomaps.com/EJjeybEnhs)
 * For Creating the Data Flow Diagram I have used [Miro] (https://miro.com/app/board/o9J_lWeK1kc=/)
 * For generating values for Secret Keys, I have used [RandomKeygen](https://randomkeygen.com/). A SECRET_KEY is required when using the flash and session functions of Flask.
+* For creating the favicon.ico I have used [Gauger.io](https://gauger.io/fonticon/)
 
 ### Content
 - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
