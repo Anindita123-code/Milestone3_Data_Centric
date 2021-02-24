@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');\
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 nav {
     color: #02233B;;
 }
@@ -27,7 +28,7 @@ nav .brand-logo {
     font-family: "Cinzel";
     color: #02233B;
     display: inline-block;
-    font-size: 20px;
+    font-size: 30px;
     padding: 2px;
 }
 nav ul .text-style {
@@ -77,6 +78,27 @@ footer a i:hover{
 h5{
     color: #795548 ;
 }
+.flash-font{
+    font-family: "Roboto Slab";
+    font-size: 30px;
+}
+
+.home-Feature{
+    font-family: "Roboto Slab";
+    /* color: #795548; */
+}
+
+#homeCategories{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#homeCategories .btn{
+    margin: 1px 1px;
+    letter-spacing: 0px;
+    font-size: 13px;
+}
 
 .mandatory{
     color: red;
@@ -93,7 +115,7 @@ h5{
 }
 
 .card .card-title {
-    font-size: 15px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 500;
 }
@@ -109,11 +131,6 @@ h5{
 
 #btn-search-review-admin {
     margin-top: 20px;
-}
-
-#homeCategories .btn{
-    margin: 1px 1px;
-    letter-spacing: 0px;
 }
 
 .card .card-content .card-title .book-name{
@@ -144,12 +161,27 @@ textarea {
 }
 
 
-
-@media only screen and (min-width: 601px)
+@media only screen 
+  and (max-width:600px)
 {
     nav .brand-logo 
     {
-        font-size: 30px;
+        font-size: 20px;
         padding: 2px;
+    }
+     
+    #homeCategories{
+        width: 100%;
+        display: block;
+        justify-content: center;
+    }
+}
+@media only screen
+    and (max-width: 1024px)
+{
+    #homeCategories{
+        width: 100%;
+        display: block;
+        justify-content: center;
     }
 }

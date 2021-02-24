@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col s12 m12, l12">
                     <span class="tagline-emphasis">Love Reading? </span> <br> <span class="tagline">Share your Views on any books and enjoy reading other's Reviews too.. 
-                        Browse from the below listed Category of Books</span>
+                        Browse from Category of Books listed below</span>
                     <div class="row l8 m8 s12" id="homeCategories">
                     {% for category in categories %}
                         <a class="btn deep-orange darken-4" href="{{ url_for('category_list', category=category.category_name) }}">{{ category.category_name }}</a>
@@ -19,7 +19,7 @@
                     <div class="card">
                     <div class="card-image">
                         <!-- section for image -->
-                        <img id="hero-image" src="static/images/Book_Hero.jpg" alt="Site image for Book Review">
+                        <img id="hero-image" src="static/images/ViewsAndReviews_Hero.png" alt="Site image for Book Review">
                     </div>
                     </div>
 
@@ -29,7 +29,7 @@
                     {% for review in featured_review %}
                     <div class="card">
                         <div class="card-content orange lighten-4">
-                        <span class="card-title deep-orange-text text-darken-4">Featured Review</span>
+                        <span class="card-title home-Feature brown-text text-darken-4">Featured Review</span>
                         <span class="card-subtitle"><strong>{{ review.book_name }}</strong>
                         <em> | Author: {{ review.author_name }}</em>
                         </span>

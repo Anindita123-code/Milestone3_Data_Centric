@@ -60,10 +60,21 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+Views and Reviews is a book review website and provides its user with the following features. The list of features which have been currently implemented are listed under "Existing Features" and the scope of further enhancements are listed under "Features left to Implement"
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
+- Create a user account (Register) - Any user can create his/her own account which would let him do much more than be able to read reviews in the site.
+- Existing users can login - A registered user can login using his userid and password and is routed to their profile page, which has the listing of all the books in the site. 
+- Add a book of your choice - A registered user can add a book of their choice, if this is not already available in the listed category of books. 
+- Modify and Delete a book - A registered user can modify and delete the record of the book that has been added by them only. Any other book which has not been added by them cannot be modified or deleted by them.
+- Add a review - A registered user can add review for any of the books in the site. This new review will be displayed together with all the other reviews for the chosen book
+- Edit and Delete review - A registered user can edit or delete any of the reviews that have been posted by them on the books of the website.
+- Admin user features - A user who is an admin can log into the website using the userid "admin" and password "admin123". This user will be routed to a different profile page.
+- Marking one review as Featured Review by Admin - The admin user will be able to search for a review by date and Publish any one of the review as Featured review on home page Featured Review Section.
+- Delete any review by Admin - The admin user will hold the priviledge of deleting any review given by any other user in the website. However.
+- Search from Home page - Any user (Registered, unregistered or Admin) will be able to search for books using the search section in the website. The homepage will show up the list of categories below the top nav bar which will allow any user to filter books by categories.
+- Logging out - Any logged in user will be able to log out of the website using the logout functionality.
+
 - ...
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.

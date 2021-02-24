@@ -24,8 +24,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home", methods=["GET", "POST"])
 def home():
-    categories = mongo.db.categories.find()
-    home_search_cat = mongo.db.categories.find()
+    categories = list(mongo.db.categories.find())
+    # home_search_cat = mongo.db.categories.find()
     featured_review = mongo.db.reviews.find({"is_featured": 1})
 
     if request.method == "POST":
@@ -33,7 +33,7 @@ def home():
 
     return render_template(
         "home.html", categories=categories,
-        search_categories=home_search_cat,
+        search_categories=categories,
         featured_review=featured_review)
 
 
@@ -142,9 +142,9 @@ def logout():
     if 'user' in session:
         session.pop('user')
         flash("You have been logged out!")
+        return redirect(url_for('home'))
 
-    categories = mongo.db.categories.find()
-    return render_template("home.html", categories=categories)
+    return render_template("home.html")
 
 
 @app.route('/add_books', methods=["GET", "POST"])
@@ -349,22 +349,18 @@ def filtered_books():
     if request.method == "POST":
         category = request.form.get("category")
         keywords = request.form.get("keywords")
+        flash(category)
 
-        if not category and keywords == "":
+        if category == 0 and keywords == "":
             books = mongo.db.books.find()
         else:
-            if category and keywords == "":
-                query = {"category_name": category}
-
-            if category and keywords != "":
-                query = {{'category_name': category}, '$or:' [
-                    {'book_name': keywords, 'author_name': keywords}]}
-
-            if not category and keywords != "":
-                query = {'$or:' [{'book_name': keywords,
-                                  'author_name': keywords}]}
-
+            if category != 0:
+                if keywords == "":
+                    query = {"category_name": category}
+                else:
+                    query = {"$and": [{"category_name": category}, {"book_name": keywords}]}
             books = mongo.db.books.find(query)
+
         if books.count() == 0:
             flash("Your search did not find any matching records")
         else:
