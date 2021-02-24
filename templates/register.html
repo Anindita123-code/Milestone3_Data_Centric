@@ -7,8 +7,9 @@
                 <div class="row">
 					<div class="input-field col s12 m8 offset-m2">
 						<i class="fas fa-user-plus prefix brown-text darken-4"></i>
-						<input id="username" name="username" minlength="5" maxlength="15" pattern="^[a-zA-z0-9_]{5-15}$" type="text" class="validate">
-						<label for="username">User-name</label>
+						<input id="username" name="username" minlength="5" maxlength="15" pattern="^[a-zA-z0-9]{5,15}$" type="text" class="validate" required>
+                        <label for="username">User-name </label> 
+                        <div class="pattern-text right-align">(5-15 characters & should be a combination of letters and number only)</div>
 					</div>
                 </div>
                 <div class="row">
@@ -21,8 +22,9 @@
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
 						<i class="fas fa-user-lock prefix brown-text darken-4"></i>
-                        <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$"class="validate">
+                        <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="password">Password</label>
+                        <div class="pattern-text right-align">(5-15 characters & should be a combination of letters and number only)</div>
                     </div>
                 </div>
                 <!-- register -->

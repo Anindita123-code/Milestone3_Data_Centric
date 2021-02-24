@@ -75,12 +75,12 @@ def login():
                     db_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
 
-                flash("Welcome {}".format(request.form.get(
+                flash("Login Successful for {}".format(request.form.get(
                     "username").capitalize()))
             else:
-                flash("The Username and/or Password doesnot match!!")
+                flash("Invalid Username / Password !!")
         else:
-            flash("The Username and/or Password doesnot match!!")
+            flash("Invalid Username / Password!!")
 
     if 'user' in session:
         if session["user"].lower() == "admin":

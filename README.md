@@ -122,9 +122,42 @@ The following tests have been conducted for the home page:
 6. I click on any of the social links below and I am routed to the respective pages which open up in a separate browser window.
 7. I click on the Logo "Views and Reviews" on the upper left hand and I am redirected to the home page from any of the pages of the site
 
+### User Authentication
+
+User authentication involves the following functionalities which have been tested as follows:
+
+1. New User Registration
+    a. I skip entering username and password in the screen. Message for required fields for Username and Password pops up.
+    b. I enter a username less than 5 characters and try to register after providing the mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
+    c. I enter a password less than 5 characters and try to register after providing all the other mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
+    d. I enter a username and password combination that is already existing in the Database while registering. I am not allowed to create username and a message is displayed "Username / Password already exists"
+    e. I add valid inputs for username and password which is not a duplicate of any existing username and also fulfills the pattern criteria. I am allowed to Register and "Registration Successful" message is displayed
+
+2. Existing User Login
+    a. I skip entering the username and/or password in the screen. Mandatory field message is displayed on trying to login.
+    b. I try to login with a username less than 5 characters. I get a pattern mismatch message from my screen's field.
+    c. I try to login with a username that is not existing in the database. I get a message "Invalid Username / Password!"
+    d. I try to login with a username / password combination that is not existing in the database. I get a message "Invalid Username / Password!"
+    e. I try to login with username / password combination existing in the database. I get a message "Login Successful" and i am transferred to my profile page.
+
+3. Forgot Password for Existing User
+    a. In the login screen below the button, I use the Generate new Password link. I am routed to the Reset Password screen.
+    b. I add the username less than 5 characters and try to submit. A mandatory pattern matching error pops up.
+    c. I add a invalid username and add passwords which are mismatching. I get an error message "invalid User"
+    d. I add a valid username mismatching passwords. I get an error message saying "Password doesn't match, please try again"
+    e. I add a valid username and two matching passwords. I get a message "New Password generated for user" 
+    f. I click on the link below the button . On selecting Login with new Password. I am redirected to the login page.
+
+4. Logout
+    a. I have not logged in or registered yet and I am trying to logout. The logout option is not displayed before any user logs in.
+    b. When I am logged in and I want to logout, I click the logout menu in the navbar. I get a message "Logged out Successfully!" and I am directed back to the home page
+
+
 
 ***********************************************
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that
+
+ the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
 Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
 

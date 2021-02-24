@@ -103,6 +103,12 @@ h5{
 .mandatory{
     color: red;
 }
+
+.pattern-text{
+    font-family: "Roboto";
+    color: rgb(121, 149, 153);
+    font-size: 12px;
+}
 .hero_thumbnail{
     background: url("../images/book_logo.jpeg") ;
     height: 110px;
