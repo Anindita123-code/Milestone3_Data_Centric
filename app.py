@@ -343,28 +343,37 @@ def search():
     return render_template("search.html", search_categories=categories)
 
 
+@app.route('/forgot_password')
+def forgot_password():
+    return render_template("forgot_password.html")
+
+
 @app.route("/filtered_books", methods=["GET", "POST"])
 def filtered_books():
     categories = mongo.db.categories.find()
     if request.method == "POST":
         category = request.form.get("category")
         keywords = request.form.get("keywords")
-        flash(category)
 
-        if category == 0 and keywords == "":
+        if not category and keywords == "":
             books = mongo.db.books.find()
         else:
-            if category != 0:
+            if category:
                 if keywords == "":
                     query = {"category_name": category}
                 else:
-                    query = {"$and": [{"category_name": category}, {"book_name": keywords}]}
+                    query = {"$and": [{"category_name": category},
+                            {"book_name": keywords}]}
+            else:
+                if keywords != "":
+                    query = {"book_name": keywords}
+
             books = mongo.db.books.find(query)
 
         if books.count() == 0:
-            flash("Your search did not find any matching records")
+            flash("Your search did not return any matching records")
         else:
-            flash("Your search returned {} Record(s)".format(books.count()))
+            flash("Your search returned {} match(es)".format(books.count()))
 
     return render_template("display_books.html",
                            books=books, search_categories=categories)
