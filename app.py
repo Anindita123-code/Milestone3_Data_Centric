@@ -133,7 +133,7 @@ def admin_profile():
     mongo.db.users.update({"username": session["user"].lower()}, login_time)
 
     return render_template("admin_profile.html", username=username,
-                           login_time=last_login, 
+                           last_login=last_login, 
                            featured_review=featured_review)
 
 
@@ -141,6 +141,7 @@ def admin_profile():
 def logout():
     if 'user' in session:
         session.pop('user')
+        # session.pop('last_login')
         flash("You have been logged out!")
         return redirect(url_for('home'))
 
@@ -343,8 +344,28 @@ def search():
     return render_template("search.html", search_categories=categories)
 
 
-@app.route('/forgot_password')
+@app.route('/forgot_password', methods=["GET", "POST"])
 def forgot_password():
+    if request.method == "POST":
+        user = mongo.db.users.find_one(
+            {"username": request.form.get("username")})
+        if user:
+            user_id = mongo.db.users.find_one(
+                {"username": request.form.get("username")})["_id"]
+            if user_id:
+                if request.form.get(
+                    "new_password") == request.form.get(
+                        "reenter_password"):
+                    mongo.db.users.update(
+                        {"_id": ObjectId(user_id)},
+                        {"$set": {"password": generate_password_hash(
+                            request.form.get("new_password"))}})
+                    flash("New Password generated Successfully!")
+                else:
+                    flash("Passwords doesnot match, Please try again.")
+        else:
+            flash("Invalid User!")
+
     return render_template("forgot_password.html")
 
 
@@ -389,16 +410,19 @@ def category_list(category):
 @app.route('/find', methods=["GET", "POST"])
 def find():
     if request.method == "POST":
+        last_login = mongo.db.users.find_one(
+            {"username": session["user"]})["last_login"]
         reviews = mongo.db.reviews.find({
             "added_date": request.form.get('review_date')
         })
         if reviews.count():
             flash("Your search returned {} Result(s)".format(reviews.count()))
-            return render_template("admin_profile.html", reviews=reviews)
+            return render_template(
+                "admin_profile.html", reviews=reviews, last_login=last_login)
         else:
             flash("Your search returned 0 Result(s)")
 
-    return render_template("admin_profile.html")
+    return render_template("admin_profile.html", last_login=last_login)
 
 
 if __name__ == "__main__":
