@@ -164,7 +164,38 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
 
 ### Registered User Login
 
+## User Profile Page
+* I login successfully as a valid user, I am routed to the profile page.
+    - I can see a welcome message and the last login date and time
+    - I can see the list of books that are available in the website
+    - I can see a cover picture of each book with the book_name and a "Check Reviews.." link, on occasion when the cover picture is not displayed, a placeholder text for the Book Image is displayed.
+    - I can click on the three vertical dots at the end of the book name and the card shows details of the book (short description, Genre / book category & author name)
+    - I can click on the upper left hand cross sign and the card refreshes to show me the book cover and book name as earlier.
+    - I can see the Delete and the Edit button for the books that have been added by me.
+    - I cannot see Delete or Edit buttons for the books that are not added by me.
+
+## Add a Book
+
+## Edit and Delete Books Added by the logged in user
+
+## Add and Read Reviews of Books
+
+## Edit and Delete Reviews Added by the logged in user
+
 ### Admin User Login
+
+## Admin Profile Page
+* I login successfully as an Admin user, I am routed to the Admins profile page.
+    - I can see a welcome message and the last login date and time 
+    - I can see the Review that is currently in Feature and displayed on the home page
+    - I can search Reviews by either book name, or review date or by both and a list of filtered reviews are displayed
+    - I search by not providing values for either book name or review date, i get a message saying "Please filter by Book Name OR Review Date to proceed"
+    - I do a search of book name and/or review date, all matching reviews are displayed in the form of cards. I can get details of Book Name, Author, Review and Reviewer name.
+    - I mark a review with "On" in the featured section of the card and select save. I can see that review becomes the featured review and all other reviews no longer marked as featured
+    - I go to the home page using the navbar for seeing if the featured review is in sync. Bingo! the new review that is marked as featured is displayed in the home page too.
+
+## Delete Review
+## Add, Edit and Delete Books
 
 ***********************************************
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that

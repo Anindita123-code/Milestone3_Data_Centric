@@ -421,14 +421,20 @@ def find():
         else:
             query = {"$and": [{"book_name": request.form.get("book_name")},
                               {"added_date": request.form.get('review_date')}]}
-
-        reviews = mongo.db.reviews.find(query)
-        if reviews.count():
-            flash("Your search returned {} Result(s)".format(reviews.count()))
-            return render_template(
-                "admin_profile.html", reviews=reviews, last_login=last_login)
+        if not request.form.get('book_name') and not request.form.get(
+                                                            'review_date'):
+            flash("Please filter by Book name or Review Date to proceed")
+            return redirect(url_for('admin_profile'))
         else:
-            flash("Your search returned 0 Result(s)")
+            reviews = mongo.db.reviews.find(query)
+            if reviews.count():
+                flash("Your search returned {} Result(s)".format(
+                                                    reviews.count()))
+                return render_template(
+                    "admin_profile.html", reviews=reviews,
+                    last_login=last_login)
+            else:
+                flash("Your search returned 0 Result(s)")
 
     return render_template("admin_profile.html", last_login=last_login)
 

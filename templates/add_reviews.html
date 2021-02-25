@@ -12,7 +12,7 @@
         <div class="col s8 m8">
             {% if session.user == "admin" %}
                 <div class="row">
-                    Please login as a normal user to add Reviews for books
+                    You are currently logged in as an "Admin". Please login as a normal user to add Reviews <a href="{{ url_for('logout') }}">Logout?</a>
                 </div>
             {% else %}
             <div class="row">
