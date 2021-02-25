@@ -28,32 +28,44 @@
             {% if reviews.count() %}
                 {% for review in reviews %}
                 <div class="card-panel row">
+                    {% if review.is_featured %}
+                        <p class="red-text text-darken-4">Featured <i class="fas fa-star"></i></p>
+                    {% endif %}
                     <p>{{ review.review_description }}</p>
                     <div class="left-align"><em>added by: {{ review.added_by.capitalize() }}</em></div>
                     <div class="left-align"><em>added on: {{ review.added_date }}</em></div>
+                    <!-- Modal Structure -->
+                        <div id="modal{{ review._id }}" class="modal">
+                            <div class="modal-content">
+                                <h5>Delete Record</h5>
+                                <p>This record will be deleted Permanently, do you wish to continue?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+                                <a href="{{ url_for('delete_review', review_id=review._id) }}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                            </div>
+                        </div>
                     {% if review.added_by|lower == session.user|lower  %}
                             <div class="right-align">
-                                <button data-target="modal1" class="btn-small brown accent-4 modal-trigger"><i class="fas fa-trash-alt"></i></button>
+                                {% if review.is_featured %}
+                                    <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" disabled><i class="fas fa-trash-alt"></i></button>
+                                {% else %}
+                                    <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" ><i class="fas fa-trash-alt"></i></button>
+                                {% endif %}
                                 <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small brown accent-4"><i class="fas fa-edit"></i></a>
                             </div>
                             
                     {% endif %}
                     {% if session.user == "admin" %}
                         <div class="right-align">
-                            <button data-target="modal1" class="btn-small brown accent-4 modal-trigger"><i class="fas fa-trash-alt"></i></button>
+                            {% if review.is_featured %}
+                                <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" disabled><i class="fas fa-trash-alt"></i></button>
+                            {% else %}
+                                <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" ><i class="fas fa-trash-alt"></i></button>
+                            {% endif %}
                         </div>
                     {% endif %}
-                    <!-- Modal Structure -->
-                            <div id="modal1" class="modal">
-                                <div class="modal-content">
-                                    <h5>Delete Record</h5>
-                                    <p>This record will be deleted Permanently, do you wish to continue?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
-                                    <a href="{{ url_for('delete_review', review_id=review._id) }}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
-                                </div>
-                            </div>
+                    
                     </div>
                 {% endfor %}
             {% else %}

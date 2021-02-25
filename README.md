@@ -127,32 +127,44 @@ The following tests have been conducted for the home page:
 User authentication involves the following functionalities which have been tested as follows:
 
 1. New User Registration
-    a. I skip entering username and password in the screen. Message for required fields for Username and Password pops up.
-    b. I enter a username less than 5 characters and try to register after providing the mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
-    c. I enter a password less than 5 characters and try to register after providing all the other mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
-    d. I enter a username and password combination that is already existing in the Database while registering. I am not allowed to create username and a message is displayed "Username / Password already exists"
-    e. I add valid inputs for username and password which is not a duplicate of any existing username and also fulfills the pattern criteria. I am allowed to Register and "Registration Successful" message is displayed
+    * I skip entering username and password in the screen. Message for required fields for Username and Password pops up.
+    * I enter a username less than 5 characters and try to register after providing the mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
+    * I enter a password less than 5 characters and try to register after providing all the other mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
+    * I enter a username and password combination that is already existing in the Database while registering. I am not allowed to create username and a message is displayed "Username / Password already exists"
+    * I add valid inputs for username and password which is not a duplicate of any existing username and also fulfills the pattern criteria. I am allowed to Register and "Registration Successful" message is displayed
 
 2. Existing User Login
-    a. I skip entering the username and/or password in the screen. Mandatory field message is displayed on trying to login.
-    b. I try to login with a username less than 5 characters. I get a pattern mismatch message from my screen's field.
-    c. I try to login with a username that is not existing in the database. I get a message "Invalid Username / Password!"
-    d. I try to login with a username / password combination that is not existing in the database. I get a message "Invalid Username / Password!"
-    e. I try to login with username / password combination existing in the database. I get a message "Login Successful" and i am transferred to my profile page.
+    * I skip entering the username and/or password in the screen. Mandatory field message is displayed on trying to login.
+    * I try to login with a username less than 5 characters. I get a pattern mismatch message from my screen's field.
+    * I try to login with a username that is not existing in the database. I get a message "Invalid Username / Password!"
+    * I try to login with a username / password combination that is not existing in the database. I get a message "Invalid Username / Password!"
+    * I try to login with username / password combination existing in the database. I get a message "Login Successful" and i am transferred to my profile page.
 
 3. Forgot Password for Existing User
-    a. In the login screen below the button, I use the Generate new Password link. I am routed to the Reset Password screen.
-    b. I add the username less than 5 characters and try to submit. A mandatory pattern matching error pops up.
-    c. I add a invalid username and add passwords which are mismatching. I get an error message "invalid User"
-    d. I add a valid username mismatching passwords. I get an error message saying "Password doesn't match, please try again"
-    e. I add a valid username and two matching passwords. I get a message "New Password generated for user" 
-    f. I click on the link below the button . On selecting Login with new Password. I am redirected to the login page.
+    * In the login screen below the button, I use the Generate new Password link. I am routed to the Reset Password screen.
+    * I add the username less than 5 characters and try to submit. A mandatory pattern matching error pops up.
+    * I add a invalid username and add passwords which are mismatching. I get an error message "invalid User"
+    * I add a valid username mismatching passwords. I get an error message saying "Password doesn't match, please try again"
+    * I add a valid username and two matching passwords. I get a message "New Password generated for user" 
+    * I click on the link below the button . On selecting Login with new Password. I am redirected to the login page.
 
 4. Logout
-    a. I have not logged in or registered yet and I am trying to logout. The logout option is not displayed before any user logs in.
-    b. When I am logged in and I want to logout, I click the logout menu in the navbar. I get a message "Logged out Successfully!" and I am directed back to the home page
+    * I have not logged in or registered yet and I am trying to logout. The logout option is not displayed before any user logs in.
+    * When I am logged in and I want to logout, I click the logout menu in the navbar. I get a message "Logged out Successfully!" and I am directed back to the home page
 
+### Search the site
 
+Site Search can be invoked from all the pages, The link for this can be seen in the Nav bar on the top right corner. The listing page for book also has the option for searching for books
+
+* I click on "Search Books" in the Navbar, The search book page is displayed.
+* I click on search button without any value, I get a book list of all the books that are currently stored in the Database. The total number of records fetched is displayed on the top using a flash message.
+* I select a category and then click on search button, In case there are no matching records for this category a suitable flash message is displayed on top otherwise, the number of matching records for the chosen category is displayed in the booklist page with a suitable message
+* I don't make a category selection and add a book name for searching, The matching book names are displayed.  with suitable message for number of books fetched.
+* I select a category and provide a name for a book, If no matching records are found, with the bookname in the chosen category, suitable message is displayed, else the matching books are displayed in the book list page.
+
+### Registered User Login
+
+### Admin User Login
 
 ***********************************************
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that

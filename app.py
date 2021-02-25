@@ -412,9 +412,17 @@ def find():
     if request.method == "POST":
         last_login = mongo.db.users.find_one(
             {"username": session["user"]})["last_login"]
-        reviews = mongo.db.reviews.find({
-            "added_date": request.form.get('review_date')
-        })
+        if request.form.get("book_name") and not request.form.get(
+                                                    "review_date"):
+            query = {"book_name": request.form.get("book_name")}
+        elif not request.form.get("book_name") and request.form.get(
+                                                    "review_date"):
+            query = {"added_date": request.form.get('review_date')}
+        else:
+            query = {"$and": [{"book_name": request.form.get("book_name")},
+                              {"added_date": request.form.get('review_date')}]}
+
+        reviews = mongo.db.reviews.find(query)
         if reviews.count():
             flash("Your search returned {} Result(s)".format(reviews.count()))
             return render_template(
