@@ -32,7 +32,7 @@ The website is structured so that the user can navigate easily and fulfill their
 
 The Data is stored in the Backend. The database being used to store this is MongoDB. The Entity Relationship Diagram is as follows. 
 
-![Entity Relationship Diagram](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/SitemapERDiagram.png?raw=true)
+![Entity Relationship Diagram](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/ERDiagram.png)
 
 ### Skeleton Plane
 
