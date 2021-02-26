@@ -5,7 +5,7 @@
         <br>
         <div class="col s4 m4 center-align">
             <img class="responsive-img" width="255" height="300" src="{{ image_url }}" alt="Image for book front cover">
-            <p>{{ book }} <em>by {{ author }}</em></p>
+            <p>{{ book }} <em><br>by: {{ author }}</em></p>
         </div>
         
         {% if session.user %}
@@ -49,10 +49,12 @@
                             <div class="right-align">
                                 {% if review.is_featured %}
                                     <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" disabled><i class="fas fa-trash-alt"></i></button>
+                                    <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small brown accent-4" disabled><i class="fas fa-edit"></i></a>
                                 {% else %}
                                     <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" ><i class="fas fa-trash-alt"></i></button>
+                                    <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small brown accent-4"><i class="fas fa-edit"></i></a>
                                 {% endif %}
-                                <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small brown accent-4"><i class="fas fa-edit"></i></a>
+                                
                             </div>
                             
                     {% endif %}

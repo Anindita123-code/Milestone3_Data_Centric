@@ -32,10 +32,10 @@
                         <span class="card-title home-Feature brown-text text-darken-4">Featured Review</span>
                         <span class="card-subtitle"><strong>{{ review.book_name }}</strong>
                         <em> | Author: {{ review.author_name }}</em>
-                        </span>
-                        <strong><br>Review: </strong>{{ review.review_description }}</p>
-                            <span><em>by:{{ review.added_by }}</em></span>
-                            <span><em>on:{{ review.added_date }}</em></span>
+                        </span><br>
+                        <strong><br>Review: </strong>{{ review.review_description }}
+                            <span><em><br><br>Reviewed by:{{ review.added_by.capitalize() }}</em></span>
+                            <span><em>, on:{{ review.added_date }}</em></span>
                             
                         <span> <a href="{{ url_for('add_reviews', book=review.book_name) }}">Read More...</a></span>
                         </div>

@@ -27,8 +27,9 @@
                 {% if session.user %}
                     {% if session.user == "admin" %}
                         <li><a href="{{ url_for('admin_profile') }}">Profile</a></li>
-                        <li><a href="{{ url_for('search') }}">Search Books</a></li>
+                        <!-- <li><a href="{{ url_for('search') }}">Search Books</a></li> -->
                         <li><a href="{{ url_for('add_books') }}">Add Books</a></li>
+                        <li><a href="{{ url_for('get_books') }}">Display Books</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('user_profile', username=session.user) }}">Profile</a></li>

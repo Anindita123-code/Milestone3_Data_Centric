@@ -2,15 +2,39 @@
 
 {% block content %}
 
-<h5 class="center-align tagline-emphasis">Add Review</h5>
-     <form class="container" method="post" action="{{ url_for('find_books', category=category)}}">
+<h5 class="center-align tagline-emphasis">Search Result</h5>
+
+    <div class="row container">
+    {% for book in books %}
+            <div class="col s12 m3 l3">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ book.book_name }}<i class="material-icons right">more_vert</i></span>
+                        <p><a href="{{ url_for('add_reviews', book=book.book_name) }}">Check Reviews..</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><i class="material-icons left">close</i>{{ book.book_name }}</span>
+                        <p>Genre: {{ book.category_name }}</p>
+                        <p>Author: {{ book.author_name }} </p>
+                        <p> {{ book.description }}</p>
+                    </div>
+                    <!--  -->
+                </div>
+
+            </div>        
+        {% endfor %}
+    </div>
+     <form class="container" method="post" action="{{ url_for('filtered_books') }}">
      <div class="row">
         <div class="col s12 card-panel orange lighten-5">
             <h5>Search</h5>
                 <div class="input-field col s5">           
                     <select id="category" name="category" class="validate" required>
                     <!-- <option value=""></option> -->
-                    {% for category in categories %}
+                    {% for category in search_categories %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endfor %}
                 </select>

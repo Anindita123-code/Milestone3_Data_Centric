@@ -182,11 +182,10 @@ def add_books():
     return render_template("add_books.html", categories=categories)
 
 
-@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
-def edit_book(book_id):
+@app.route("/edit_books/<book_id>", methods=["GET", "POST"])
+def edit_books(book_id):
     book = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-
     if request.method == "POST":
         update = {
             "category_name": request.form.get("category_name"),
@@ -329,6 +328,9 @@ def get_books():
     categories = list(mongo.db.categories.find())
     # home_search_cat = mongo.db.categories.find()
     books = mongo.db.books.find()
+    if session["user"] != "admin" and session["user"] != "":
+        return redirect(url_for('user_profile', username=session["user"]))
+
     return render_template(
         "display_books.html", categories=categories,
         search_categories=categories, books=books)
@@ -396,7 +398,7 @@ def filtered_books():
         else:
             flash("Your search returned {} match(es)".format(books.count()))
 
-    return render_template("display_books.html",
+    return render_template("find_books.html",
                            books=books, search_categories=categories)
 
 
