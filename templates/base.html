@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="static/images/favicon.ico"/>
+    <link rel="icon" type="image/png" href="../static/images/favicon.ico"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
@@ -27,7 +27,6 @@
                 {% if session.user %}
                     {% if session.user == "admin" %}
                         <li><a href="{{ url_for('admin_profile') }}">Profile</a></li>
-                        <!-- <li><a href="{{ url_for('search') }}">Search Books</a></li> -->
                         <li><a href="{{ url_for('add_books') }}">Add Books</a></li>
                         <li><a href="{{ url_for('get_books') }}">Display Books</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
@@ -53,19 +52,21 @@
                 {% if session.user %}
                     {% if session.user == "admin" %}
                         <li><a href="{{ url_for('admin_profile') }}">Profile</a></li>
-                        <li><a href="{{ url_for('search') }}">Search Books</a></li>
                         <li><a href="{{ url_for('add_books') }}">Add Books</a></li>
+                        <li><a href="{{ url_for('get_books') }}">Display Books</a></li>
                         <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ url_for('user_profile', username=session.user) }}">Profile</a></li>
                         <li><a href="{{ url_for('search') }}">Search Books</a></li>
                         <li><a href="{{ url_for('add_books') }}">Add Books</a></li>
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>    
                     {% endif %}
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Login</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
+                    <li><a href="{{ url_for('search') }}">Search Books</a></li>
                 {% endif %}
+
         </ul>
             
     </header>

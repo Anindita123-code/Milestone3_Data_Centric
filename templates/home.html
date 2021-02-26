@@ -5,8 +5,9 @@
             <div class="row">
                 <div class="col s12 m12, l12">
                     <span class="tagline-emphasis">Love Reading? </span> <br> <span class="tagline">Share your Views on any books and enjoy reading other's Reviews too.. 
-                        Browse from Category of Books listed below</span>
+                        Browse from Categories listed below <br><br></span> 
                     <div class="row l8 m8 s12" id="homeCategories">
+                       
                     {% for category in categories %}
                         <a class="btn deep-orange darken-4" href="{{ url_for('category_list', category=category.category_name) }}">{{ category.category_name }}</a>
                     {% endfor %}
