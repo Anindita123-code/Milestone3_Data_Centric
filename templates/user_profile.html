@@ -20,9 +20,9 @@
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light center-align">
                 {% if book.image_url %}
-                    <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover">
+                    <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover" height="300">
                 {% else %}
-                    <span class="grey-text text-darken-1"> <br> - No Image to Display -</span>
+                    <img src="../static/images/blank_image.png">
                 {% endif %}
             </div>
             <div class="card-content">
