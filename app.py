@@ -384,7 +384,7 @@ def filtered_books():
                     query = {"category_name": category}
                 else:
                     query = {"$and": [{"category_name": category},
-                            {"book_name": keywords}]}
+                                      {"book_name": keywords}]}
             else:
                 if keywords != "":
                     query = {"book_name": keywords}
