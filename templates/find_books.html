@@ -8,15 +8,15 @@
 
     {% for book in books %}
             <div class="col s12 m3 l3">
-                <div class="card">
+                <div class="card medium">
                     <div class="card-image waves-effect waves-block waves-light">
                         {% if book.image_url %}
-                            <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover">
+                            <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover" height="300">
                         {% else %}
                             <img src="static/images/blank_image.png">
                         {% endif %}
                     </div>
-                    <div class="card-content">
+                    <div class="card-content center-align">
                         <span class="card-title activator grey-text text-darken-4">{{ book.book_name }}<i class="material-icons right">more_vert</i></span>
                         <p><a href="{{ url_for('add_reviews', book=book.book_name) }}">Check Reviews..</a></p>
                     </div>

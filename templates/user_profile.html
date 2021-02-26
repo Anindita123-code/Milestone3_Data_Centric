@@ -17,7 +17,7 @@
     </p>
 {% for book in books %}
     <div class="col s12 m3 l3">
-        <div class="card">
+        <div class="card large">
             <div class="card-image waves-effect waves-block waves-light center-align">
                 {% if book.image_url %}
                     <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover" height="300">
@@ -25,25 +25,18 @@
                     <img src="../static/images/blank_image.png">
                 {% endif %}
             </div>
-            <div class="card-content">
+            <div class="card-content center-align">
                 <span class="card-title activator grey-text text-darken-4">{{ book.book_name }}<i class="material-icons right">more_vert</i></span>
             <p><a href="{{ url_for('add_reviews', book=book.book_name) }}">Check Reviews..</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons left">close</i>{{ book.book_name }}</span>
-                <p>Genre: {{ book.category_name }}</p>
-                <p>Author: {{ book.author_name }} </p>
-                <p> {{ book.description }}</p>
-            </div>
             {% if book.added_by|lower == session.user|lower %}
               <!-- Modal Trigger -->
-                <div class="center-align">
+                <span><br>
                     <button data-target="modal1" class="btn-small brown accent-4 modal-trigger"><i class="fas fa-trash-alt"></i></button>
                     <a href="{{ url_for('edit_books', book_id=book._id) }}" class="btn-small brown accent-4"><i class="fas fa-edit"></i></a>
-                </div>
+                </span>
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
-                    <div class="modal-content">
+                    <div class="modal-content left-align">
                         <h5>Delete Record</h5>
                         <p>This record will be deleted Permanently, do you wish to continue?</p>
                     </div>
@@ -54,6 +47,14 @@
                 </div>
             {% endif %}
             </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons left">close</i>{{ book.book_name }}</span>
+                <p>Genre: {{ book.category_name }}</p>
+                <p>Author: {{ book.author_name }} </p>
+                <p> {{ book.description }}</p>
+            </div>
+            
+        </div>
     </div>        
 {% endfor %}
 </div>   

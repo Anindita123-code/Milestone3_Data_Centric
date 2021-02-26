@@ -32,18 +32,20 @@
 </div>    
 <div class="container row">
     <form class="col s12 m12 offset-m2 padding" method="POST" action="{{ url_for('find') }}">
-        <div class="col s4 m4 light-blue-text text-darken-4 input-field">
+        <div class="col s12 m4 light-blue-text text-darken-4 input-field">
             <input id="book_name" name="book_name" type="text" class="validate">
             <label for="book_name">Book Name</label>
         </div>    
-        <div class="col s4 m4 light-blue-text text-darken-4 input-field">
+        <div class="col s10 m4 light-blue-text text-darken-4 input-field ">
             <i class="fas fa-calendar-alt prefix deep-orange-text text-darken-4 "></i>
             <input id="review_date" name="review_date" type="text" class="datepicker validate">
             <label for="review_date">Review Date</label>
         </div>
-        <button id="btn-search-review-admin" class="btn-small brown darken-1" type="submit">
-            <i class="fas fa-search"></i>
-        </button>
+        <div class="col s2 m4">            
+            <button id="btn-search-review-admin" class="btn-small brown darken-1" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
     </form>
 </div>
 
@@ -52,7 +54,7 @@
 {% for review in reviews %}
  
     <div class="col s12 m3 l3">
-      <div class="card orange lighten-4">
+      <div class="card medium orange lighten-4">
         <div class="card-content ">
           <span class="card-title book-name deep-orange-text text-darken-4"><strong>{{ review.book_name }}</strong></span>
           <span class="card-subtitle"> <em>Author: {{ review.author_name }}</em></span>

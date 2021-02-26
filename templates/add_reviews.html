@@ -3,13 +3,13 @@
     <h5 class="center-align tagline-emphasis">Book Reviews</h5>
     <div class="container row">
         <br>
-        <div class="col s4 m4 center-align">
+        <div class="col s12 m4 center-align">
             <img class="responsive-img" width="255" height="300" src="{{ image_url }}" alt="Image for book front cover">
             <p>{{ book }} <em><br>by: {{ author }}</em></p>
         </div>
         
         {% if session.user %}
-        <div class="col s8 m8">
+        <div class="col s12 m8">
             {% if session.user == "admin" %}
                 <div class="row">
                     You are currently logged in as an "Admin". Please login as a normal user to add Reviews <a href="{{ url_for('logout') }}">Logout?</a>

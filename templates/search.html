@@ -2,11 +2,15 @@
 {% block content %}
 <h5 class="center-align tagline-emphasis">Search Books</h5>
     <div class="row container">
+        <div class="class=col s12 center-align lime-text text-darken-4 bigger-font-18">
+            <br> Search for Books by selecting any category and/or providing the name of the book. <br>
+            If no filter conditions are provided your search would return all Books in the website<br><br>
+        </div>
         <form class="col s12 card-panel orange lighten-5" method="POST" action="{{ url_for('filtered_books') }}">
-            <h5>Search</h5>
+            <h5>Search By</h5>
             <div class="input-field col s5">
                 <select id="category" name="category">
-                    <option value="0" disabled selected> Select Categories</option>
+                    <option value="0" disabled selected> Categories</option>
                     {% for category in search_categories %}
                     <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endfor %}
