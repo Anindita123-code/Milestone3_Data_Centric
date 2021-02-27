@@ -25,7 +25,6 @@ mongo = PyMongo(app)
 @app.route("/home", methods=["GET", "POST"])
 def home():
     categories = list(mongo.db.categories.find())
-    # home_search_cat = mongo.db.categories.find()
     featured_review = mongo.db.reviews.find({"is_featured": 1})
 
     if request.method == "POST":
