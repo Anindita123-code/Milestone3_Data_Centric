@@ -61,9 +61,9 @@
                     {% if session.user == "admin" %}
                         <div class="right-align">
                             {% if review.is_featured %}
-                                <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" disabled><i class="fas fa-trash-alt"></i></button>
+                                <button data-target="modal{{ review._id }}" class="btn-small red accent-4 modal-trigger" disabled><i class="fas fa-trash-alt"></i></button>
                             {% else %}
-                                <button data-target="modal{{ review._id }}" class="btn-small brown accent-4 modal-trigger" ><i class="fas fa-trash-alt"></i></button>
+                                <button data-target="modal{{ review._id }}" class="btn-small red accent-4 modal-trigger" ><i class="fas fa-trash-alt"></i></button>
                             {% endif %}
                         </div>
                     {% endif %}
