@@ -68,7 +68,7 @@ def login():
     if request.method == "POST":
         db_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
+        flash(db_user)
         if db_user:
             if check_password_hash(
                     db_user["password"], request.form.get("password")):
@@ -382,6 +382,7 @@ def filtered_books():
             else:
                 if keywords != "":
                     query = {"book_name": keywords}
+                    # query = {"$text": {"$search": keywords}}
 
             books = mongo.db.books.find(query)
 
@@ -423,6 +424,7 @@ def find():
             return redirect(url_for('admin_profile'))
         else:
             reviews = mongo.db.reviews.find(query)
+
             if reviews.count():
                 flash("Your search returned {} Result(s)".format(
                                                     reviews.count()))

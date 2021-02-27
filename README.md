@@ -228,30 +228,45 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
     - I mark a review with "On" in the featured section of the card and select save. I can see that review becomes the featured review and all other reviews no longer marked as featured
     - I go to the home page using the navbar for seeing if the featured review is in sync. Bingo! the new review that is marked as featured is displayed in the home page too.
 
-#### Delete Review
 #### Add, Edit and Delete Books
+* As an Admin user, I can add a new book. I click on the Add books link in the navbar and I am routed to Add New Book Page
+    - I select the book categories dropdown, I can see a list of all the categories that are there in the website
+    - I select a category, I can select any one that I wish to. 
+    - I try to add a book with only category name and no other data, The mandatory marked (*) fields show up in red indicating that those needs to be filled
+    - I add a book name of 3 characters long and try to submit, It displays an error condition with a red underline under the book name
+    - I add a book name of 5 characters at and try to submit with book name and category, The book name is green now but the Author field shows a red underline indicating it is a mandatory field and cannot be left blank
+    - I add some characters to the author field, if it is one character the red line stays on, minimum of 2 characters gets a green underline and i am good to go
+    - I add more characters to the book name (test for longer text), I am able to put upto 50 characters as set in the program
+    - I add more than one author separated by comma, I am allowed to until 120 characters as indicated in the program
+    - I skip the URL and description for now and submit the new entry, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book.
 
-***********************************************
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that
+* As an Admin user, I go to the Display Book option in the navbar, a Book List of all the books are displayed.
+    - The books that have been added by the Admin user, will carry brown buttons of Edit and Delete icon buttons in the book card. This means the Admin, like any normal user can Edit and Delete the books he/she has added to the website
+    - I click on a brown Edit Icon Button, the Edit book page opens with the existing values for each field, which can be modified.
+    - I make the required changes in the Edit Books page, and Save Changes. I get a message "Book Updated Successfully"
+    - I click on the brown delete Icon button on the book card that displays, a modal window pops up alerting that the record will be deleted permanently, Do you wish to continue? 
+        -  On selecting Yes, the book is removed and the remaining book card orients themselves across the webpage automatically
+        -  On selecting No, no book is removed, the modal box closes and I am routed to the Display book page 
+    - I click on any one of the red Delete Icon button displayed with the book cards. a modal window with Delete Record message "This Book has been added by [logged in User]. Selecting Yes, will remove this record permanently. Do you wish to continue?" 
+        -  On selecting Yes, the book (although added by a different user) can be removed by the Admin user and the remaining book card orients themselves across the webpage automatically
+        -  On selecting No, no book is removed, the modal box closes and the Admin user is routed to the Display book page 
 
- the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+### Delete Reviews
+* As an Admin user, I click on the Display Books on the navbar. I am taken to the Book List page which shows the books and a "Check Review.." link
+    - I click on the "Check Review.." link on any of the selected book. I am routed to the Book Review Page. 
+    - I need to login as a normal user in order to post a review. I am given a suitable message and link to the login page, for adding reviews.
+    - I can see red delete icon buttons with all the displayed reviews. this can be used to delete a specific review, in case admin finds this review to be unsuitable.
+        -  On selecting Yes, the book (although added by a different user) can be removed by the Admin user and the remaining book card orients themselves across the webpage automatically
+        -  On selecting No, no book is removed, the modal box closes and the Admin user is routed to the Display book page 
+    - I can see a featured review marked with a star icon, When a review is published in the Home Page as featured review, the review cannot be deleted or modified. All the delete button for the featured review is disabled.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+### Brouser testing on Computer, Laptop, iPad and mobile devices
+The website has been extensively tested in Chrome and Safari web browsers, in iPad and iPhone and adjusts according to the width of the screen
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+### Known Issues.
+1. While testing the Add Book page, I noticed, that the image_url doesnot come up initially but on editing the book after successful record creation, and putting the same image url the book picture is shown
+2. All the capitalized works are converted into lower caps word while inserting records in mongoDB. This needs to be edited, and then displays as expected.
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
-********************************************************************
 ## Deployment
 
 The project uses github for hosting and has been deployed using heroku. The github repository is connected to the heroku.
