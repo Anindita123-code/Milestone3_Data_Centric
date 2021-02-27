@@ -319,7 +319,6 @@ def featured_review(review_id):
 @app.route("/get_books", methods=["GET", "POST"])
 def get_books():
     categories = list(mongo.db.categories.find())
-    # home_search_cat = mongo.db.categories.find()
     books = mongo.db.books.find()
     if session["user"] != "admin" and session["user"] != "":
         return redirect(url_for('user_profile', username=session["user"]))
