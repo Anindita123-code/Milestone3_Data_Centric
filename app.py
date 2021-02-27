@@ -350,7 +350,8 @@ def search():
 def forgot_password():
     if request.method == "POST":
         user = mongo.db.users.find_one(
-            {"username": request.form.get("username")})
+            {"$and": [{"username": request.form.get(
+                        "username")}, {"email": request.form.get("email")}]})
         if user:
             user_id = mongo.db.users.find_one(
                 {"username": request.form.get("username")})["_id"]

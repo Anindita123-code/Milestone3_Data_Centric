@@ -143,9 +143,12 @@ User authentication involves the following functionalities which have been teste
 3. Forgot Password for Existing User
     * In the login screen below the button, I use the Generate new Password link. I am routed to the Reset Password screen.
     * I add the username less than 5 characters and try to submit. A mandatory pattern matching error pops up.
-    * I add a invalid username and add passwords which are mismatching. I get an error message "invalid User"
-    * I add a valid username mismatching passwords. I get an error message saying "Password doesn't match, please try again"
-    * I add a valid username and two matching passwords. I get a message "New Password generated for user" 
+    * I add an invalid email id and try to submit. my input is underlined in red indicating that something is wrong.
+    * I add the email id which is valid and this has to be the one that I had used during registration, this shows a green underline and i can proceed
+    * I add a invalid username and /or emailid and add passwords which are mismatching. I get an error message "invalid User"
+    * I add a valid username and wrong emailid and add passwords which are matching. I get an error message "invalid User"
+    * I add a valid username and emailid and mismatching passwords. I get an error message saying "Password doesn't match, please try again"
+    * I add a valid username and emailid which i had provided during user registration and two matching passwords. I get a message "New Password generated for user" 
     * I click on the link below the button . On selecting Login with new Password. I am redirected to the login page.
 
 4. Logout
@@ -175,12 +178,43 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
     - I cannot see Delete or Edit buttons for the books that are not added by me.
 
 #### Add a Book
+* I click on the Add Book link in the navbar, I am routed to the Add Book Page.
+* I click on the Categories, I can see a list of all the categories that are there in the website
+* I select a category, I can select any one that I wish to. 
+* I try to add a book with only category name and no other data, The mandatory marked (*) fields show up in red indicating that those needs to be filled
+* I add a book name of 3 characters long and try to submit, It displays an error condition with a red underline
+* I add a book name of 5 characters at and try to submit with book name and category, The book name is green now but the Author field shows a red underline indicating it is a mandatory field and cannot be left blank
+* I add some characters to the author field, if it is one character the red line stays on, minimum of 2 characters gets a green underline and i am good to go
+* I add more characters to the book name (test for longer text), I am able to put upto 50 characters as set in the program
+* I add more than one author separated by comma, I am allowed to until 120 characters as indicated in the program
+* I skip the URL and description for now and submit the new entry, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book.
 
 #### Edit and Delete Books Added by the logged in user
+* I scroll down to the newly created book, which shows a blank Image, and want to put an image now, I can see and edit and delete button with the book card.
+* I click on the edit button of the newly created book, I am routed to the Edit book page with the value of the category, book and authorname I have just entered.
+* I make some changes in the book name and author name, and add an image link with https://<somelink with image> I add some description and save. I get a message saying this has been saved successfully and I am routed to the book list page.
+* I scroll down to the book I just added and I can see the picture it fetches from the new link. 
+* I click on the picture and the card refreshes with the details for author and description I had just added.
+* I click on the cross on the upper left corner of the card refresh and I am routed back to my original book image again
+* I click on the brown delete button at the bottom of the book card which I have added, a modal window pops up, saying this record will be permanently deleted, continue?
+* I press "no" in the delete modal window, and the record is shown as it was earlier in the book list page
+* I press "yes" in the delete modal window and the record is deleted from the database and is no longer available in the Book list page.
 
 #### Add and Read Reviews of Books
+* In the book list page or my profile page, I click on any of the "Check Review.." link on any of the book cards, I am routed to the Book Reviews Page.
+* The book review page, has a picture of the book on the left, and the listing of all the reviews that has been given so far, or none if no one has review it yet.
+* I write a short review, and press add review. My review is added in the Book review page and a message displayed as "review added successfully".
 
 #### Edit and Delete Reviews Added by the logged in user
+* I want to edit the review that I had given, I click on the brown edit button, i am routed to the edit review page.
+* I add more text and make some changes to the existing text in the textarea, and then save this. I get a message "Review added Succesfully" and I am routed to the Book Review Page
+* My edited review with the new changes are visible in the Book Review Page. I can see the brown buttons of edit and delete with my reviews only, so I can further edit or delete a review that I had posted and not others.
+* I want to delete any of my reviews, I select the brown delete button for the review I want to delete, a Modal Delete window pops up for confirmation "This record will be deleted, do you wish to continue?" 
+* I select "no" and nothing happens, I select "yes" and my review is removed from the list of reviews for the book.
+
+### Not Registered User
+* As a user who has not logged into the site, I can go and search the books by using the search functionality. The book list is displayed.
+* I select "check reviews.." of any chosen book, I am shown a message "New user? Register here, Registered User? Login here to read and write reviews"
 
 ### Admin User Login
 
