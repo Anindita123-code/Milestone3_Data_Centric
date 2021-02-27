@@ -46,20 +46,20 @@ def register():
 
         if user_exists:
             flash("Username / Password Already Exists !")
-            return redirect(url_for('register'))
+        else:
+            new_user = {
+                "username": request.form.get("username"),
+                "email": request.form.get("email"),
+                "password": generate_password_hash(
+                    request.form.get("password")),
+                "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")
+            }
+            mongo.db.users.insert_one(new_user)
+            # store in session variable
 
-        new_user = {
-            "username": request.form.get("username"),
-            "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password")),
-            "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")
-        }
-        mongo.db.users.insert_one(new_user)
-        # store in session variable
-
-        session["user"] = request.form.get("username").lower()
-        flash("You have been registered successfully !!")
-        return redirect(url_for('login'))
+            session["user"] = request.form.get("username").lower()
+            flash("You have been registered successfully !!")
+            return redirect(url_for('login'))
 
     return render_template('register.html')
 
@@ -94,24 +94,28 @@ def login():
 @app.route("/user_profile/<username>", methods=["GET", "POST"])
 def user_profile(username):
     now = datetime.now()
+    last_login = now.strftime("%m/%d/%Y, %H:%M:%S")
     books = mongo.db.books.find()
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    password = mongo.db.users.find_one(
-        {"username": session["user"]})["password"]
-    last_login = mongo.db.users.find_one(
-        {"username": session["user"]})["last_login"]
 
-    # add the current login date time in the users collection
-    login_time = {
-        "username": session["user"].lower(),
-        "password": password,
-        "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")}
-    mongo.db.users.update({"username": session["user"].lower()}, login_time)
+    if session["user"]:
+        userid = mongo.db.users.find_one(
+            {"username": session["user"]})["_id"]
 
-    return render_template(
-        "user_profile.html", username=username,
-        login_time=last_login, books=books)
+        mongo.db.users.update(
+            {"_id": userid},
+            {"$set": {"last_login": last_login}})
+
+        return redirect(url_for('user_profile', username=username,
+                                login_time=last_login, books=books))
+        # add the current login date time in the users collection
+        # login_time = {
+        #     "username": session["user"].lower(),
+        #     "password": password,
+        #     "last_login": now.strftime("%m/%d/%Y, %H:%M:%S")}
+        # mongo.db.users.update(
+        #     {"username": session["user"].lower()}, login_time)
+
+    return render_template("login.html")
 
 
 @app.route("/admin_profile", methods=["GET", "POST"])
