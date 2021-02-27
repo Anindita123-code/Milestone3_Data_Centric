@@ -398,7 +398,9 @@ def filtered_books():
 def category_list(category):
     books = mongo.db.books.find({"category_name": category})
     flash("{} Book(s) found under {} category".format(books.count(), category))
-    return render_template("display_books.html", books=books)
+
+    categories = mongo.db.categories.find() 
+    return render_template("display_books.html", books=books, search_categories=categories)
 
 
 @app.route('/find', methods=["GET", "POST"])
