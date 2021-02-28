@@ -68,7 +68,7 @@ def login():
     if request.method == "POST":
         db_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        flash(db_user)
+
         if db_user:
             if check_password_hash(
                     db_user["password"], request.form.get("password")):
@@ -387,7 +387,7 @@ def filtered_books():
             books = mongo.db.books.find(query)
 
         if books.count() == 0:
-            flash("Your search did not return any matching records")
+            flash("Your search did not return any matches")
         else:
             flash("Your search returned {} match(es)".format(books.count()))
 
