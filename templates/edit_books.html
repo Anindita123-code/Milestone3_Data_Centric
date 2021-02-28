@@ -7,7 +7,6 @@
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
                         <select id="category_name" name="category_name" class="validate" required>
-                            <!-- <option value=""></option> -->
                             {% for category in categories %}
                                 {% if category.category_name == book.category_name %}
                                     <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
@@ -22,21 +21,18 @@
                 </div>
                 <div class="row">
 					<div class="input-field col s12 m8 offset-m2">
-						<!-- <i class="fas fa-user-edit prefix brown-text darken-4"></i> -->
 						<input id="book_name" name="book_name" minlength="8" maxlength="120" type="text" value="{{ book.book_name }}" class="validate" required>
 						<label for="book_name"><span class="mandatory">*</span> Book Name</label>
 					</div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-						<!-- <i class="fas fa-user-lock prefix brown-text darken-4"></i> -->
                         <input id="author_name" name="author_name" minlength="8" maxlength="50" type="text" value="{{ book.author_name }}" class="validate" required>
 						<label for="author_name"><span class="mandatory">*</span> Author</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-						<!-- <i class="fas fa-user-lock prefix brown-text darken-4"></i> -->
                         <input id="image_url" name="image_url" type="text" value="{{ book.image_url }}" >
 						<label for="image_url">Book Image Url (Optional) </label>
                     </div>

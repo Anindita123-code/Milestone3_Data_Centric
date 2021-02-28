@@ -45,7 +45,7 @@ def register():
     if request.method == "POST":
         # check if a matching username is found in the database
         user_exists = mongo.db.users.find_one(
-            {"username": request.form.get("username")})
+            {"username": request.form.get("username").lower()})
 
         if user_exists:
             flash("Username / Password Already Exists !")

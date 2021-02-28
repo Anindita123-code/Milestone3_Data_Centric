@@ -62,9 +62,8 @@
             <span><em>by:{{ review.added_by }}</em></span>
         </div>
         <div class="card-action light-blue-text text-darken-4">Featured Review 
-          <!-- Switch -->
-           
-                <div class="switch">
+          <!-- on / off Switch for featured review-->
+              <div class="switch">
                     <label for="featured_{{ review._id }}">
                         No
                         {% if review.is_featured == 1 %}
@@ -78,9 +77,7 @@
                         {% endif %}
                        
                     </label>
-                
             </div>
-            
         </div>
       </div>
     </div>

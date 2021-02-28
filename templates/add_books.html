@@ -7,7 +7,6 @@
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
                         <select id="category" name="category" class="validate" required>
-                            <!-- <option value=""></option> -->
                             {% for category in categories %}
                                 <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                             {% endfor %}
@@ -18,21 +17,18 @@
                 </div>
                 <div class="row">
 					<div class="input-field col s12 m8 offset-m2">
-						<!-- <i class="fas fa-user-edit prefix brown-text darken-4"></i> -->
 						<input id="book_name" name="book_name" minlength="5" maxlength="50" type="text" class="validate" required>
 						<label for="book_name"><span class="mandatory">*</span> Book Name</label>
 					</div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-						<!-- <i class="fas fa-user-lock prefix brown-text darken-4"></i> -->
                         <input id="author" name="author" minlength="2" maxlength="120" type="text" class="validate" required>
 						<label for="author"><span class="mandatory">*</span> Author</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-						<!-- <i class="fas fa-user-lock prefix brown-text darken-4"></i> -->
                         <input id="image_url" name="image_url" type="text">
 						<label for="image_url">Book Image Url (Optional) </label>
                     </div>

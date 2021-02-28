@@ -66,9 +66,7 @@
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                     <li><a href="{{ url_for('search') }}">Search Books</a></li>
                 {% endif %}
-
         </ul>
-            
     </header>
     <section>
         <!-- flash messages -->
@@ -82,7 +80,6 @@
             {% endif %}
         {% endwith %}
     </section>
-
     <content>
         <div>
              {% block content %}
@@ -91,7 +88,6 @@
     </content>
     <footer class="page-footer">
         <div class="container">
-           
             <a class="grey-text text-lighten-4 center" target="_blank" href="http://www.facebook.com">
                 <i class="fab fa-facebook-square footer-icons text-shadow"></i>
             </a>

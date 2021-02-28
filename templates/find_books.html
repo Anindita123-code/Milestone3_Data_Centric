@@ -1,36 +1,30 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 <h5 class="center-align tagline-emphasis">Search Result</h5>
-
     <div class="row container">
-
     {% for book in books %}
-            <div class="col s12 m3 l3">
-                <div class="card medium">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        {% if book.image_url %}
-                            <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover" height="300">
-                        {% else %}
-                            <img src="../static/images/blank_image.png">
-                        {% endif %}
-                    </div>
-                    <div class="card-content center-align">
-                        <span class="card-title activator grey-text text-darken-4">{{ book.book_name }}<i class="material-icons right">more_vert</i></span>
-                        <p><a href="{{ url_for('add_reviews', book=book.book_name) }}">Check Reviews..</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4"><i class="material-icons left">close</i>{{ book.book_name }}</span>
-                        <p>Genre: {{ book.category_name }}</p>
-                        <p>Author: {{ book.author_name }} </p>
-                        <p> {{ book.description }}</p>
-                    </div>
-                    <!--  -->
+        <div class="col s12 m3 l3">
+            <div class="card medium">
+                <div class="card-image waves-effect waves-block waves-light">
+                    {% if book.image_url %}
+                        <img class="activator" src="{{ book.image_url }}" alt="Book Front Cover" height="300">
+                    {% else %}
+                        <img src="../static/images/blank_image.png">
+                    {% endif %}
                 </div>
-
-            </div>        
-        {% endfor %}
+                <div class="card-content center-align">
+                    <span class="card-title activator grey-text text-darken-4">{{ book.book_name }}<i class="material-icons right">more_vert</i></span>
+                    <p><a href="{{ url_for('add_reviews', book=book.book_name) }}">Check Reviews..</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons left">close</i>{{ book.book_name }}</span>
+                    <p>Genre: {{ book.category_name }}</p>
+                    <p>Author: {{ book.author_name }} </p>
+                    <p> {{ book.description }}</p>
+                </div>
+            </div>
+        </div>        
+    {% endfor %}
     
      <!-- search section -->
     {% include 'search_include.html' %}
