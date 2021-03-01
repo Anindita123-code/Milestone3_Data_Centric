@@ -20,6 +20,19 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+# Error handlers
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    # note that we set the 404 status explicitly
+    return render_template('500.html'), 500
 
 
 @app.route("/")
@@ -373,11 +386,10 @@ def filtered_books():
                     query = {"category_name": category}
                 else:
                     query = {"$and": [{"category_name": category},
-                                      {"book_name": keywords}]}
+                                      {"book_name": {"$regex": ".*"+keywords+".*"}}]}
             else:
                 if keywords != "":
-                    query = {"book_name": keywords}
-                    # query = {"$text": {"$search": keywords}}
+                    query = {"book_name": {"$regex": ".*"+keywords+".*"}}
 
             books = mongo.db.books.find(query)
 
@@ -402,19 +414,22 @@ def category_list(category):
 
 
 @app.route('/find', methods=["GET", "POST"])
-# called from admins profile page to find reviews as per search
+# called from admins profile page to find reviews as per filter criteria mentioned
 def find():
     if request.method == "POST":
         last_login = mongo.db.users.find_one(
             {"username": session["user"]})["last_login"]
         if request.form.get("book_name") and not request.form.get(
                                                     "review_date"):
-            query = {"book_name": request.form.get("book_name")}
+            query = {"book_name": {"$regex": ".*"+request.form.get(
+                        "book_name")+".*"}}
         elif not request.form.get("book_name") and request.form.get(
                                                     "review_date"):
             query = {"added_date": request.form.get('review_date')}
         else:
-            query = {"$and": [{"book_name": request.form.get("book_name")},
+            query = {"$and": [{"book_name":
+                              {"$regex": ".*"+request.form.get(
+                                "book_name")+".*"}},
                               {"added_date": request.form.get('review_date')}]}
         if not request.form.get('book_name') and not request.form.get(
                                                             'review_date'):

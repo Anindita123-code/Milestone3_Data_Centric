@@ -1,7 +1,7 @@
-![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Readme_header.png)
+![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/Readme_header.png)
 
 # Views and Reviews 
-[Views and Reviews](http://views-and-reviews.herokuapp.com/add_books)
+[live link of the website](http://views-and-reviews.herokuapp.com/add_books)
 
 ## Table of contents
 - [Views and Reviews](#views-and-reviews)
@@ -74,7 +74,7 @@ The scope of "Views and Reviews" is capped at the following:
 
 The website is structured so that the user can navigate easily and fulfill their goal of either reading reviews or posting a review for any book. A sitemap of the project is enclosed below
 
-![Project Sitemap](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Sitemap.png?raw=true)
+![Project Sitemap](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/Sitemap.png?raw=true)
 
 The Data is stored in the Backend. The database "views_and_reviews" is stored in mongoDB. This collection has the following structure.
 
@@ -85,13 +85,13 @@ The Data is stored in the Backend. The database "views_and_reviews" is stored in
 
 The Entity Relationship Diagram is as follows. 
 
-![Entity Relationship Diagram](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/ERDiagram.png)
+![Entity Relationship Diagram](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/ERDiagram.png)
 
 ### Skeleton Plane
 
 The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. The flow of data is depicted as follows:
 
-![Project DFD](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/DFD1.png)
+![Project DFD](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/DFD1.png)
 
 ### User stories
 
@@ -313,7 +313,7 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
         -  On selecting No, no book is removed, the modal box closes and the Admin user is routed to the Display book page 
     - I can see a featured review marked with a star icon, When a review is published in the Home Page as featured review, the review cannot be deleted or modified. All the delete button for the featured review is disabled.
 
-### Brouser testing on Computer, Laptop, iPad and mobile devices
+### Browser testing on Computer, Laptop, iPad and mobile devices
 The website has been extensively tested in Chrome and Safari web browsers, in iPad and iPhone and adjusts according to the width of the screen
 
 ### Known Issues.

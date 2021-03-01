@@ -15,10 +15,14 @@ nav {
     letter-spacing: 2px;
 }
 
+.row.container{
+    min-height: 72vh;
+}
+
 .tagline-emphasis {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    size: 20px;
+    font-size: 28px;
     letter-spacing: 2px;
     line-height: 40px;
 }
@@ -75,7 +79,7 @@ footer a i:hover{
     width: 100%;
 }
 
-h5{
+h4{
     color: #795548 ;
 }
 .flash-font{
@@ -90,7 +94,7 @@ h5{
 
 #homeCategories{
     width: 100%;
-    display: flex;
+    display: block;
     justify-content: center;
 }
 

@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h5 class="center-align tagline-emphasis">Search Result</h5>
+<h4 class="center-align tagline-emphasis">Search Result</h4>
     <div class="row container">
+    <!-- search section -->
+    {% include 'search_include.html' %}
+
     {% for book in books %}
         <div class="col s12 m3 l3">
             <div class="card medium">
@@ -26,7 +29,6 @@
         </div>        
     {% endfor %}
     
-     <!-- search section -->
-    {% include 'search_include.html' %}
+  
 </div>
      {% endblock %}
