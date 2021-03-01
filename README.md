@@ -1,6 +1,52 @@
 ![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Readme_header.png)
 
-# Views and Reviews
+# Views and Reviews 
+[Views and Reviews](http://views-and-reviews.herokuapp.com/add_books)
+
+## Table of contents
+- [Views and Reviews](#views-and-reviews)
+  * [Project Overview](#project-overview)
+  * [User Experience](#user-experience)
+    + [Strategy Plane](#strategy-plane)
+    + [Scope Plane](#scope-plane)
+    + [Structure Plane](#structure-plane)
+    + [Skeleton Plane](#skeleton-plane)
+    + [User stories](#user-stories)
+  * [Features](#features)
+    + [Existing Features](#existing-features)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Technologies Used](#technologies-used)
+    + [Languages](#languages)
+    + [Database](#database)
+    + [Libraries and Frameworks](#libraries-and-frameworks)
+    + [Hosting](#hosting)
+  * [Testing](#testing)
+    + [Home Page](#home-page)
+    + [User Authentication](#user-authentication)
+    + [Search the site](#search-the-site)
+    + [Registered User Login](#registered-user-login)
+      - [User Profile Page](#user-profile-page)
+      - [Add a Book](#add-a-book)
+      - [Edit and Delete Books Added by the logged in user](#edit-and-delete-books-added-by-the-logged-in-user)
+      - [Add and Read Reviews of Books](#add-and-read-reviews-of-books)
+      - [Edit and Delete Reviews Added by the logged in user](#edit-and-delete-reviews-added-by-the-logged-in-user)
+    + [Not Registered User](#not-registered-user)
+    + [Admin User Login](#admin-user-login)
+      - [Admin Profile Page](#admin-profile-page)
+      - [Add, Edit and Delete Books](#add--edit-and-delete-books)
+    + [Delete Reviews](#delete-reviews)
+    + [Brouser testing on Computer, Laptop, iPad and mobile devices](#brouser-testing-on-computer--laptop--ipad-and-mobile-devices)
+    + [Known Issues.](#known-issues)
+  * [Deployment](#deployment)
+    + [Deploy to Heroku](#deploy-to-heroku)
+    + [Access to code](#access-to-code)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## Project Overview
 
@@ -20,6 +66,7 @@ The scope of "Views and Reviews" is capped at the following:
     1. Users will be able to register and thereby login into the website to post a review on any book of their choice
     2. All users will be able to search for books and view a listing of the same. 
     3. Tha Admin user can publish any of the existing reviews as a Featured Review. And will have superuser access to remove any reviews from the website.
+    4. A registered user will be able to read and post a review for any books that are there in the site, if a book of their choice is not available, they can add the book to the site.
 
 * Here, the focus is on reviews posted by user, and hence user management in detail is considered outside the scope of this system. 
 
@@ -29,7 +76,14 @@ The website is structured so that the user can navigate easily and fulfill their
 
 ![Project Sitemap](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Sitemap.png?raw=true)
 
-The Data is stored in the Backend. The database being used to store this is MongoDB. The Entity Relationship Diagram is as follows. 
+The Data is stored in the Backend. The database "views_and_reviews" is stored in mongoDB. This collection has the following structure.
+
+* Categories - stores the names of the categories of book. 
+* Books - stores details of any book created by the user or admin
+* Reviews - stores details of all the reviews that have been posted for any book 
+* users - stores the details of all the users with their login-id, emailid and password
+
+The Entity Relationship Diagram is as follows. 
 
 ![Entity Relationship Diagram](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/ERDiagram.png)
 
