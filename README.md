@@ -1,28 +1,27 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Readme_header.png)
 
 # Views and Reviews
 
 ## Project Overview
 
-The Views and Reviews project caters to individuals of interest by Sharing their Reviews about one or more than one book. The reviewers of the books are registered users of the website. And this website helps capturing various perspectives on a book which a reader can reference before they decide on having a personal copy to themselves. 
+The Views and Reviews is a project undertaken as part of Code Institute Diploma Curriculum. This project caters to individuals who loves to Read and share their opinion on Books written by various authors. The reviewers of the books are registered users of the website. This website helps capturing various perspectives on a book which a reader can reference before they decide on having a personal copy of it / buy it. 
 
-This website will provide as a reference for any book buyer, to search for reviews and provide a rating for the reviews that has been posted. However, only registered users can post a review. This project has been build using Pyhon and Flask Framework as Backend and MongoDB as the database. Details of this is provided in the detailed sections below.
+This website will provide as a reference for any book buyer, to search for reviews. However, only registered users can post a review. This project has been build using Python and Flask Framework as Backend and MongoDB as the database. More details on follows.
  
-## UX
+## User Experience
 
 ### Strategy Plane
 
-The "Views and Reviews" project has been concieved having in mind for the book readers community. Readers often require to read a short review of a book to understand whether it would be the one of their next reading lists. This website will help the users get a deeper insight into a book, and post a review on any kind of books ranging from story books, Cookery books, Art books, Biographies, Comics and more. Any user can search the website for reviews that might be posted already. They can also rate a review.
+The "Views and Reviews" project has been concieved having in mind for the book readers community. Readers / buyers of books almost always like read a short review about the book to understand whether it would be the one of their next reading lists. This website will help the users get a deeper insight into a book, and post a review on any kind of books ranging from story books, Cookery books, Art books, Biographies, Comics and more. Any user can search the website for reviews that might be posted already. 
 
 ### Scope Plane
 
 The scope of "Views and Reviews" is capped at the following:
     1. Users will be able to register and thereby login into the website to post a review on any book of their choice
-    2. All users will be able to search and read a review on any books. They can also rate a review.
-    3. Tha Admin user can publish any of the existing reviews as the review of the week. And will have superuser access to remove any reviews from the website.
+    2. All users will be able to search for books and view a listing of the same. 
+    3. Tha Admin user can publish any of the existing reviews as a Featured Review. And will have superuser access to remove any reviews from the website.
 
 * Here, the focus is on reviews posted by user, and hence user management in detail is considered outside the scope of this system. 
-* Any kind of analysis with the ratings of reviews is outside the scope of this project.
 
 ### Structure Plane 
 
