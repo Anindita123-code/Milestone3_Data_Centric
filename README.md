@@ -91,7 +91,7 @@ The Entity Relationship Diagram is as follows.
 
 The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. The flow of data is depicted as follows:
 
-![Project DFD](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/DFD.png?raw=true)
+![Project DFD](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/DFD1.png)
 
 ### User stories
 
