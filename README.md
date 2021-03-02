@@ -1,17 +1,20 @@
 ![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/Readme_header.png)
 
-# Views and Reviews 
-[live link of the website](http://views-and-reviews.herokuapp.com/add_books)
-
-## Table of contents
+# Table of contents
 - [Views and Reviews](#views-and-reviews)
   * [Project Overview](#project-overview)
   * [User Experience](#user-experience)
     + [Strategy Plane](#strategy-plane)
     + [Scope Plane](#scope-plane)
     + [Structure Plane](#structure-plane)
+    + [Database Architecture](#database-architecture)
     + [Skeleton Plane](#skeleton-plane)
     + [User stories](#user-stories)
+    + [Design Choices](#design-choices)
+      - [Fonts](#fonts)
+      - [icons](#icons)
+      - [Colors](#colors)
+      - [Styling](#styling)
   * [Features](#features)
     + [Existing Features](#existing-features)
     + [Features Left to Implement](#features-left-to-implement)
@@ -21,7 +24,7 @@
     + [Libraries and Frameworks](#libraries-and-frameworks)
     + [Hosting](#hosting)
   * [Testing](#testing)
-    + [Home Page](#home-page)
+    + [Home Page Testing](#home-page-testing)
     + [User Authentication](#user-authentication)
     + [Search the site](#search-the-site)
     + [Registered User Login](#registered-user-login)
@@ -35,7 +38,7 @@
       - [Admin Profile Page](#admin-profile-page)
       - [Add, Edit and Delete Books](#add--edit-and-delete-books)
     + [Delete Reviews](#delete-reviews)
-    + [Brouser testing on Computer, Laptop, iPad and mobile devices](#brouser-testing-on-computer--laptop--ipad-and-mobile-devices)
+    + [Browser testing on Computer, Laptop, iPad and mobile devices](#browser-testing-on-computer--laptop--ipad-and-mobile-devices)
     + [Known Issues.](#known-issues)
   * [Deployment](#deployment)
     + [Deploy to Heroku](#deploy-to-heroku)
@@ -47,6 +50,8 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
+# Views and Reviews 
+[live link of the website](http://views-and-reviews.herokuapp.com/add_books)
 
 ## Project Overview
 
