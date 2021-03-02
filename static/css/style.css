@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');\
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 nav {
@@ -45,7 +44,7 @@ nav ul .text-style {
 .nav-style{
     background: #D69B59;
     font-family: "Cinzel";
-    /* color: #02233B; */
+
 }
 
 /* Footer Styles */
@@ -171,7 +170,6 @@ textarea {
   overflow: auto;
   resize: none;
   height: 140px;
-  /* font-family: 'Oswald'; */
   font-size: 15px;
 }
 @media only screen 

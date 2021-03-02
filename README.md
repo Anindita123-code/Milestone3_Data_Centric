@@ -52,31 +52,38 @@
 
 The Views and Reviews is a project undertaken as part of Code Institute Diploma Curriculum. This project caters to individuals who loves to Read and share their opinion on Books written by various authors. The reviewers of the books are registered users of the website. This website helps capturing various perspectives on a book which a reader can reference before they decide on having a personal copy of it / buy it. 
 
-This website will provide as a reference for any book buyer, to search for reviews. However, only registered users can post a review. This project has been build using Python and Flask Framework as Backend and MongoDB as the database. More details on follows.
+This website will provide as a reference for any book buyer, to search for reviews. However, only registered users can post a review. This project has been build using Python and Flask Framework as Backend and MongoDB as the database. 
+
+In future, the reviewers can be routed to a website that would give them the best deal for buying their chosen book. More details on follows.
  
 ## User Experience
 
 ### Strategy Plane
 
-The "Views and Reviews" project has been concieved having in mind for the book readers community. Readers / buyers of books almost always like read a short review about the book to understand whether it would be the one of their next reading lists. This website will help the users get a deeper insight into a book, and post a review on any kind of books ranging from story books, Cookery books, Art books, Biographies, Comics and more. Any user can search the website for reviews that might be posted already. 
+The "Views and Reviews" project has been concieved having in mind for the book readers community. 
+Readers / buyers of books almost always like read a short review about the book to understand whether it would be the one of their next reading lists. 
+This website will help the users get a deeper insight into a book, and post a review on any kind of books ranging from story books, Cookery books, Art books, Biographies, Comics and more. Any user can search the website for books and read the related reviews that might have been posted already. 
 
 ### Scope Plane
 
-The scope of "Views and Reviews" is capped at the following:
+The scope of "Views and Reviews" is as follows:
     1. Users will be able to register and thereby login into the website to post a review on any book of their choice
     2. All users will be able to search for books and view a listing of the same. 
-    3. Tha Admin user can publish any of the existing reviews as a Featured Review. And will have superuser access to remove any reviews from the website.
+    3. The "admin" user can publish any of the existing reviews as a Featured Review. And will have superuser access to remove any reviews (except for the one that is featured in the home page) and books from the website.
     4. A registered user will be able to read and post a review for any books that are there in the site, if a book of their choice is not available, they can add the book to the site.
 
 * Here, the focus is on reviews posted by user, and hence user management in detail is considered outside the scope of this system. 
 
 ### Structure Plane 
 
-The website is structured so that the user can navigate easily and fulfill their goal of either reading reviews or posting a review for any book. A sitemap of the project is enclosed below
+The website is structured so that the user can navigate easily and fulfill their goal of either reading reviews or posting a review for any book. 
+A sitemap of the project is enclosed below
 
 ![Project Sitemap](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/Sitemap.png?raw=true)
 
-The Data is stored in the Backend. The database "views_and_reviews" is stored in mongoDB. This collection has the following structure.
+### Database Architecture
+
+The database "views_and_reviews" is stored in mongoDB. This collection has the following structure.
 
 * Categories - stores the names of the categories of book. 
 * Books - stores details of any book created by the user or admin
@@ -89,94 +96,132 @@ The Entity Relationship Diagram is as follows.
 
 ### Skeleton Plane
 
-The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. The flow of data is depicted as follows:
-
-![Project DFD](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/DFD1.png)
-
-### User stories
-
-The project aims to address the following user stories
-1. As an Admin user, I should be able to create Category / Genre of Books, Edit and Delete this from the database. So that I can have some control on how the books and reviews are organized.
-2. As an Admin user, I should be able to mark a review as a featured review which will be displayed on the home page of the website and will be visible to any first time visitor of the site without having to perform a search
-3. As an Admin user, I should be able to Edit and Delete information about any Registered User. So that, I can clear up the database for users who has never logged in.
-4. As an Admin user, I should be able to Edit and Delete Reviews that has been added by a Registered user of the website. So that I can remove any obnoxious comment written by any reviewer on a book.
-5. As a registered user, I should be able to add a review for existing books in the website. So that I do not have to upload duplicate books in for sharing my review.
-6. As a registered user, I should be able to add new books to the website and then write a review for it. So that I have the freedom to add new books even if they are not there in the website. 
-7. As a registered user, I should be able to view what reviews I have added in my profile page.
-8. As a registered user, I should be able to delete or modify the books and reviews that has been added by me.
-9. As a guest user, I should be able to read any existing reviews in the website.
-10. As a guest user, I should be able to search for reviews on a particular book, book genre, author and content of review. So that I can read any reviews posted in the site
-11. As a guest user, I should be able to rate a review after I have read this. So that this is visible to the next reader of the review
-12. As user of the website, I should be able to navigate easily through the website, and get appropriate alert messages, when I perform any important action. So that i have a great user experience
-
 The wireframes for the project can be found in the attached pdf file
 * Wireframe for Desktop / laptop view [Desktop Wireframe](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Wireframes/Wireframes_MS3_Desktop.pdf)
 * Wireframe for iPad View [Ipad Wireframe](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Wireframes/Wireframes_MS3_ipad.pdf)
 * Wireframe for phone /iphone [Mobile Wireframe](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Wireframes/Wireframes_iphone.pdf)
 
+The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. 
+The flow of data is depicted as follows:
+![Project DFD](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/DFD1.png)
+
+### User stories
+
+The project aims to address the following user stories:
+
+1. As a first time visitor I should be able to view the books in the website, by either Filtering by Category name and / or searching by a book name.
+2. I should be able to register an account if I donot already possess a login-id and password to use with "Views and Reviews"
+3. As a registered user, I should be able to add a review for existing books in the website. So that I do not have to upload duplicate books in for sharing my review.
+4. As a registered user, I should be able to add new books to the website and then write a review for it. So that I have the freedom to add new books even if they are not there in the website. 
+5. As a registered user, I should be able to view all the books in my profile page and also have the privilege of reading and writing reviews for any of the books in the website.
+6. As a registered user, I should be able to delete and edit any book information of the books that has been added by me.
+7. As a registered user, I should be able to delete and edit any reviews that has been added by me. However, if one of my reviews are Featured in the home page, I will not be allowed to delete or modify this.
+8. As an Admin user, I should be able to mark a review as a featured review which will be displayed on the home page of the website and will be visible to any first time visitor of the site without having to perform a search
+9. As an Admin user, I should be able to Delete Reviews and Books that has been added by a Registered user of the website. So that I can remove any obnoxious comment written by any reviewer on a book.
+10. As a guest user, I should be able to search for a particular book by its name and book genre. However, to read or write a reviews on any book, I need to log in/Register into the website.
+11. As user of the website, I should be able to navigate easily through the website, and get appropriate alert messages, when I perform any important action. So that i have a great user experience
+
+### Design Choices
+The overall feel of the website is for Book Readers to collaborate on a platform where they can share their opinion about a book and read others opinions too. I have hence chosen color combination that feels good to the eyes.
+
+#### Fonts
+* For the most part of the website, I have used the font "Roboto" which gives a good reading experience. They are nicely spaced and make the site look more fuller.
+* For the Logo and the Nav bar, I have used "Cinzel" which I think fitted very well to put that highlight on the nav elements and the logout
+* For the confirmation or error message display, I have used the font "Roboto Slab" and this has helped differentiate them from the rest of the website.
+
+#### icons
+* I have used icons in the buttons, for most of the cases. The icons have been taken from fontawesome. I have made a distinguish pattern with colors in the delete functionalities of Admin user and a normal user.
+    - The brown color buttons with Delete and Edit icons are indicative of the logged in user created entry which can be modified and deleted at their own will. However, a super user access has been given to "admin" user to with Red delete buttons to delete any of the entries, and he/she doesnot find relevant.
+* A star icon has been used to mark a Review as featured in the listing of the read reviews page and this cannot be edited and deleted by anyone, unless this is taken off the feature, and this is possible by Featuring any other review in its place.
+
+#### Colors
+I have kept minimum colors for this website and play around with the same tone of colors as my Hero Image of the open book in the home page.
+   
+The top navbar and the footer has uses #D69B59 (a light caramel brown), Deep Orange for the category buttons in the home page (#bf360c) and shades of orange for Search (#fff3e0) and the Featured Review Sections on home page and Admin profile page (#ffe0b2).
+The text colors differ in different pages owing to the message they convey. 
+The Flash messages background color is lime (#cddc39). 
+
+Most of the color references can be found in the [Materializecss color page](https://materializecss.com/color.html)
+
+#### Styling
+
+I have used [Materializecss Components](https://materializecss.com/cards.html) for styling the Pages that shows a list of books. For this I have used Image cards (for listing books) and Basic cards (for review in Admin profile page)
+The colors and the placement of the contents vary and has been tweaked to fit with the requirement and the selected color pallete of the website.
 
 ## Features
 
 Views and Reviews is a book review website and provides its user with the following features. The list of features which have been currently implemented are listed under "Existing Features" and the scope of further enhancements are listed under "Features left to Implement"
  
 ### Existing Features
-- Create a user account (Register) - Any user can create his/her own account which would let him do much more than be able to read reviews in the site.
-- Existing users can login - A registered user can login using his userid and password and is routed to their profile page, which has the listing of all the books in the site. 
-- Add a book of your choice - A registered user can add a book of their choice, if this is not already available in the listed category of books. 
-- Modify and Delete a book - A registered user can modify and delete the record of the book that has been added by them only. Any other book which has not been added by them cannot be modified or deleted by them.
-- Add a review - A registered user can add review for any of the books in the site. This new review will be displayed together with all the other reviews for the chosen book
-- Edit and Delete review - A registered user can edit or delete any of the reviews that have been posted by them on the books of the website.
-- Admin user features - A user who is an admin can log into the website using the userid "admin" and password "admin123". This user will be routed to a different profile page.
-- Marking one review as Featured Review by Admin - The admin user will be able to search for a review by date and Publish any one of the review as Featured review on home page Featured Review Section.
-- Delete any review by Admin - The admin user will hold the priviledge of deleting any review given by any other user in the website. However.
-- Search from Home page - Any user (Registered, unregistered or Admin) will be able to search for books using the search section in the website. The homepage will show up the list of categories below the top nav bar which will allow any user to filter books by categories.
-- Logging out - Any logged in user will be able to log out of the website using the logout functionality.
-- Change password?? 
+* Create a user account (Register) 
+    - Any user can create his/her own account to explore further into the site.
+* Existing users can login 
+    - A registered user can login using his userid and password and is routed to their profile page, which has the listing of all the books in the site. 
+* Existing user can change their password, if they have forgotton the same
+    - A registered user, can change their password, if they still remember their login-id and the email id that has been used while creating their account. The new password can then be used to log into the website.
+* Add a book of your choice 
+    - A registered user can add a book of their choice, if this is not already available in the listed category of books. 
+* Modify and Delete a book 
+    - A registered user can modify and delete information of the book that has been added by them only. Any other book which has not been added by them cannot be modified or deleted by them.
+* Add a review 
+    - A registered user can add review for any of the books in the site. This new review will be displayed together with all the other reviews for the chosen book
+* Edit and Delete review 
+    - A registered user can edit and delete any of the reviews that have been posted by them on the books of the website. However, if any of review is Featured in the Homepage currently, they cannot be modified or deleted until they are taken out of Feature.
+* Admin user features 
+    - A user who is an admin can log into the website using the userid "admin" and password "admin123". This user will be routed to a different profile page.
+* Marking one review as Featured Review by Admin 
+    - The admin user will be able to search for a review by review date and bookname, and Publish any one of the review as Featured review on home page Featured Review Section. 
+    - At any one time any one Review can be featured in the home page.
+* Delete any review by Admin 
+    - The admin user will hold the priviledge of deleting any review given by any other user in the website. However, if the review is currently published in the homepage, this feature is disabled
+* Search from Home page 
+    - Any user (Registered, unregistered or Admin) will be able to search for books using the search section in the website. The homepage will show up the list of categories below the top nav bar which will allow any user to filter books by categories.
+    - Search Sections can be found in the listing pages and this can be used to narrow down the search by searching for categories and books together.
+* Logging out - Any logged in user will be able to log out of the website using the logout functionality.
 
 ### Features Left to Implement
 As the number of users grow, There would be additional functionalities that I would look forward to implement.
-- Refine the Change password functionality with autogenerated email link for verification of the user.
+- User Management (edit and delete users)
+- Create new categories
 - As the number of Books in the website increases, I would like to implement Pagination for search results and other book and review listing pages
 - I would like to have a review and Ratings for the books as part of the reviews which will help a user of the site to gain more insight about the book and its contents. 
-- User Management 
+- Refine the Change password functionality with autogenerated email link for verification of the user.
 
 ## Technologies Used
-
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
 ### Languages
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) for creating the webpages
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) for designing and styling the web pages
 - [Python](https://www.python.org/) for the backend development
-- [Jinja Templating language](https://jinja.palletsprojects.com/en/2.11.x/) has been used in conjuction with python for the working of the website
+- [Jinja Templating language](https://jinja.palletsprojects.com/en/2.11.x/) have been used in conjuction with python for the working of the website
 
 ### Database
-- [MongoDB Atlas](https://www.mongodb.com/) has been used as the primary database for storing and retrieving the information in the website
+- [MongoDB Atlas](https://www.mongodb.com/) have been used as the primary database for storing and retrieving the information in the website
 
 ### Libraries and Frameworks
-- [Font Awesome](https://fontawesome.com/) - has been used for the button icons that are used in the website
-- [Materialize](https://materializecss.com/) - the various components of materialize has been used to draw the webpage structures and form elements
-- [Google Fonts](https://fonts.google.com/) has been used to give the website a uniform look with the help of fonts provided by google
-- [JQuery](https://jquery.com) - has been used to simplify DOM manipulation.
-- [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/) Jinja and Werkzeug from Flask has been extensively used
+- [Font Awesome](https://fontawesome.com/) - have been used for the button icons that are used in the website
+- [Materialize](https://materializecss.com/) - the various components of materialize have been used to draw the webpage structures and form elements
+- [Google Fonts](https://fonts.google.com/) have been used to give the website a uniform look with the help of fonts provided by google
+- [JQuery](https://jquery.com) - have been used to simplify DOM manipulation.
+- [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/) Jinja and Werkzeug from Flask have been extensively used
 
 ### Hosting
-- [Github](https://github.com/) has been used for storing the application in public repositories
-- [GitPod](https://gitpod.io/workspaces/) has been used as the primary development platform
-- [Heroku](https://www.heroku.com/) has been used to host the website
+- [Github](https://github.com/) have been used for storing the application in public repositories
+- [GitPod](https://gitpod.io/workspaces/) have been used as the primary development platform
+- [Heroku](https://www.heroku.com/) have been used to host the website
 
 ## Testing
 As a user selects [Views and Reviews](https://views-and-reviews.herokuapp.com/) he would be directed to the home page of the website.
 
-### Home Page
+### Home Page Testing
 
 The following tests have been conducted for the home page:
   
 1. The Nav bar links direct the user to the Register, Login and the Search Pages. - All links work and is appropriately redirected
 2. I click any of the category buttons below the navbar - This gets me to the book list page, with the listing of the books of the selected category and shows appropriate message
-3. There is only one featured review. I can read the Featured Review in Full.. 
-4. I click on the "Read More" link and I am redirected to the Review listing page for all reviews given for that book
-5. I use the search panel below to search for any book. I select a category and give the name of a book. The book is displayed in the Book list page
+3. There is only one featured review. I can read the Featured Review in Full.
+4. I click on the "Read More" link in the featured review section and I am redirected to the Review listing page for all reviews given for that book. I can read and write reviews if I am already logged in, else I am appropriately redirected.
+5. I use the search panel below to search for any book. I select a category and give the name of a book. The book is displayed with any part or whole of matching names in the Book list page. This is a case sensitive search.
 6. I click on any of the social links below and I am routed to the respective pages which open up in a separate browser window.
 7. I click on the Logo "Views and Reviews" on the upper left hand and I am redirected to the home page from any of the pages of the site
 
@@ -216,7 +261,6 @@ User authentication involves the following functionalities which have been teste
 ### Search the site
 
 Site Search can be invoked from all the pages, The link for this can be seen in the Nav bar on the top right corner. The listing page for book also has the option for searching for books
-
 * I click on "Search Books" in the Navbar, The search book page is displayed.
 * I click on search button without any value, I get a book list of all the books that are currently stored in the Database. The total number of records fetched is displayed on the top using a flash message.
 * I select a category and then click on search button, In case there are no matching records for this category a suitable flash message is displayed on top otherwise, the number of matching records for the chosen category is displayed in the booklist page with a suitable message
@@ -228,6 +272,7 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
 #### User Profile Page
 * I login successfully as a valid user, I am routed to the profile page.
     - I can see a welcome message and the last login date and time
+    - I can see a short description telling me what I can do here.
     - I can see the list of books that are available in the website
     - I can see a cover picture of each book with the book_name and a "Check Reviews.." link, on occasion when the cover picture is not displayed, a placeholder text for the Book Image is displayed.
     - I can click on the three vertical dots at the end of the book name and the card shows details of the book (short description, Genre / book category & author name)
@@ -245,7 +290,8 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
 * I add some characters to the author field, if it is one character the red line stays on, minimum of 2 characters gets a green underline and i am good to go
 * I add more characters to the book name (test for longer text), I am able to put upto 50 characters as set in the program
 * I add more than one author separated by comma, I am allowed to until 120 characters as indicated in the program
-* I skip the URL and description for now and submit the new entry, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book.
+* I skip the URL and description for now and submit the new entry, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book with a blank image.
+OR I add the image Url by using a image address from any of the internet locations, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book with the selected image.
 
 #### Edit and Delete Books Added by the logged in user
 * I scroll down to the newly created book, which shows a blank Image, and want to put an image now, I can see and edit and delete button with the book card.
@@ -300,15 +346,16 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
 
 * As an Admin user, I go to the Display Book option in the navbar, a Book List of all the books are displayed.
     - The books that have been added by the Admin user, will carry brown buttons of Edit and Delete icon buttons in the book card. This means the Admin, like any normal user can Edit and Delete the books he/she has added to the website
+    - I can see all the book cards have a red Delete button which is a superuser access to be able to delete any selected book from the website.
+    - I click on any one of the red Delete Icon button displayed with the book cards. a modal window with Delete Record message "This Book has been added by [logged in User]. Selecting Yes, will remove this record permanently. Do you wish to continue?" 
+        -  On selecting Yes, the book (although added by a different user) can be removed by the Admin user and the remaining book card orients themselves across the webpage automatically
+        -  On selecting No, no book is removed, the modal box closes and the Admin user is routed to the Display book page 
     - I click on a brown Edit Icon Button, the Edit book page opens with the existing values for each field, which can be modified.
     - I make the required changes in the Edit Books page, and Save Changes. I get a message "Book Updated Successfully"
     - I click on the brown delete Icon button on the book card that displays, a modal window pops up alerting that the record will be deleted permanently, Do you wish to continue? 
         -  On selecting Yes, the book is removed and the remaining book card orients themselves across the webpage automatically
         -  On selecting No, no book is removed, the modal box closes and I am routed to the Display book page 
-    - I click on any one of the red Delete Icon button displayed with the book cards. a modal window with Delete Record message "This Book has been added by [logged in User]. Selecting Yes, will remove this record permanently. Do you wish to continue?" 
-        -  On selecting Yes, the book (although added by a different user) can be removed by the Admin user and the remaining book card orients themselves across the webpage automatically
-        -  On selecting No, no book is removed, the modal box closes and the Admin user is routed to the Display book page 
-
+    
 ### Delete Reviews
 * As an Admin user, I click on the Display Books on the navbar. I am taken to the Book List page which shows the books and a "Check Review.." link
     - I click on the "Check Review.." link on any of the selected book. I am routed to the Book Review Page. 
@@ -322,8 +369,9 @@ Site Search can be invoked from all the pages, The link for this can be seen in 
 The website has been extensively tested in Chrome and Safari web browsers, in iPad and iPhone and adjusts according to the width of the screen
 
 ### Known Issues.
-1. While testing the Add Book page, I noticed, that the image_url doesnot come up initially but on editing the book after successful record creation, and putting the same image url the book picture is shown
-2. All the capitalized works are converted into lower caps word while inserting records in mongoDB. This needs to be edited, and then displays as expected.
+1. The sitewide search of bookname is case sensitive and the case of the bookname (in pull of part) has to match to how it was entered.
+2. The admin user cannot post a review as he is logged in as "admin", this has been used as a rule to make sure that the reviews are added by a real users of the website.
+3. A logged in user can only read and post a review, this has been maintained to encourage users to create an account with "Views and Reviews"
 
 ## Deployment
 
@@ -410,19 +458,26 @@ Once this is done, the Project can be run from the local using the following com
 
     $ python3 app.py
 
-
 ## Credits
 * For creating the sitemap I have used [Gloomaps](https://www.gloomaps.com/EJjeybEnhs)
 * For Creating the Data Flow Diagram I have used [Miro] (https://miro.com/app/board/o9J_lWeK1kc=/)
 * For generating values for Secret Keys, I have used [RandomKeygen](https://randomkeygen.com/). A SECRET_KEY is required when using the flash and session functions of Flask.
 * For creating the favicon.ico I have used [Gauger.io](https://gauger.io/fonticon/)
+* I have used [Dbdiagrams.io](https://dbdiagram.io/home) for creating the Entity Relationship Diagram for the website
+* I owe a huge thank you to [Stack Overflow](https://stackoverflow.com/) for addressing most of my queries.
+* For addressing complex searches I have referred to [MongoDB Documentation](https://docs.mongodb.com/manual/reference/operator/query/regex/)
+* For error handling, I have referred to [Flask Palletprojects link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/#error-handlers)
+* All images and contents of books have been taken from [Books at Amazon] (https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
+* I am thankful to the Peer review Group of CI for giving me a lot of feedback to improve my project
+* I am thankful to my family and friends for using this site to post some real reviews 
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+* All images and most of the contents of books have been taken from [Books at Amazon] (https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
+* the reviews have been mostly posted by me and some of my friends who helped me test the project.
 
 ### Media
-- The photos used in this site were obtained from ...
+* The home page hero image has been taken from [National Endowment for humanities: Open book](https://www.neh.gov/news/press-release/2015-01-15/humanities-open-book)
 
 ### Acknowledgements
-
-- I received inspiration for this project from X
+* I have been inspired to take up the book review project oweing to my daughters love of reading story books, taken after my husband, who loves to share his opinion on books he has read
+* I am thankful to my mentor for guiding me appropriately to come this far.
