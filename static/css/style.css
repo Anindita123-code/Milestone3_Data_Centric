@@ -78,6 +78,35 @@ footer a i:hover{
     width: 100%;
 }
 
+.image-background{
+  background-image: url("../images/ViewsAndReviews_Hero.png");
+  background-color: rgba(5, 5, 5, 0.5);
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.error-text {
+    font-size: 30px;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    color: white;
+    background-color: #722d14e0;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+}
+
+.back-to-safety{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-60%, -1%);
+}
+
 h4{
     color: #795548 ;
 }
@@ -196,6 +225,10 @@ textarea {
     .flash-font{
         font-size: 20px;
     }
+    .error-text{
+        font-size: 20px;
+    }
+   
 }
 @media only screen
     and (max-width: 1024px)

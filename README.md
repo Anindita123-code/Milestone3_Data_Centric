@@ -378,6 +378,14 @@ The website has been extensively tested in Chrome and Safari web browsers, in iP
 2. The admin user cannot post a review as he is logged in as "admin", this has been used as a rule to make sure that the reviews are added by a real users of the website.
 3. A logged in user can only read and post a review, this has been maintained to encourage users to create an account with "Views and Reviews"
 
+### Validation Checks
+
+#### HTML Validation
+#### CSS Validation
+#### Javascript Validation
+#### PEP8 Compliance
+
+
 ## Deployment
 
 The project uses github for hosting and has been deployed using heroku. The github repository is connected to the heroku.
