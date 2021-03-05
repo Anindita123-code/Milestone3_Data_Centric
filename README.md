@@ -1,6 +1,7 @@
 ![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/Readme_header.png)
 
-## Views and Reviews [website link](http://views-and-reviews.herokuapp.com)
+# Views and Reviews 
+[live link of the website](http://views-and-reviews.herokuapp.com)
 
 ## Table of Contents
 - [Views and Reviews](#views-and-reviews)
@@ -56,12 +57,6 @@
     + [Content](#content)
     + [Media](#media)
     + [Acknowledgements](#acknowledgements)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
-# Views and Reviews 
-[live link of the website](http://views-and-reviews.herokuapp.com)
 
 ## Project Overview
 
@@ -511,6 +506,7 @@ Once this is done, the Project can be run from the local using the following com
 * I owe a huge thank you to [Stack Overflow](https://stackoverflow.com/) for addressing most of my queries.
 * For addressing complex searches I have referred to [MongoDB Documentation](https://docs.mongodb.com/manual/reference/operator/query/regex/)
 * For error handling, I have referred to [Flask Palletprojects link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/#error-handlers)
+* Table of contents generated in the Readme has been generated with the help of markdown-toc
 * All images and contents of books have been taken from [Books at Amazon] (https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
 * I am thankful to the Peer review Group of CI for giving me a lot of feedback to improve my project
 * I am thankful to my family and friends for using this site to post some real reviews 
