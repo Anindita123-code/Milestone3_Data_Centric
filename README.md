@@ -1,5 +1,8 @@
 ![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/Readme_header.png)
 
+## Views and Reviews [website link](http://views-and-reviews.herokuapp.com)
+
+## Table of Contents
 - [Views and Reviews](#views-and-reviews)
   * [Project Overview](#project-overview)
   * [User Experience](#user-experience)
@@ -58,7 +61,7 @@
 
 
 # Views and Reviews 
-[live link of the website](http://views-and-reviews.herokuapp.com/add_books)
+[live link of the website](http://views-and-reviews.herokuapp.com)
 
 ## Project Overview
 
