@@ -225,6 +225,7 @@ As the number of users grow, There would be additional functionalities that I wo
 
 ## Testing
 As a user selects [Views and Reviews](https://views-and-reviews.herokuapp.com/) he would be directed to the home page of the website.
+Functional Testing has been done Manually, Following are the steps and the expected outcomes of each section of the website.
 
 ### Home Page Testing
 
