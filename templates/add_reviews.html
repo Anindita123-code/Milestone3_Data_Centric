@@ -6,9 +6,9 @@
         <div class="col s12 m4 center-align">
         {% if session.user %}
             {% if session.user == "admin" %}
-                <a href="{{ url_for ('get_books')}}"><i class="fas fa-angle-double-left"></i> Go Back </a>
+                <a href="{{ url_for ('get_books')}}"><i class="fas fa-angle-double-left"></i> Back to Book-list </a>
             {% else %}
-                <a href="{{ url_for ('user_profile', username=session.user) }}"><i class="fas fa-angle-double-left"></i> Go Back </a>
+                <a href="{{ url_for ('user_profile', username=session.user) }}"><i class="fas fa-angle-double-left"></i> Back to Book-list</a>
             {% endif %}
         {% endif %}<br>
             <img class="responsive-img" width="255" height="300" src="{{ image_url }}" alt="Image for book front cover">

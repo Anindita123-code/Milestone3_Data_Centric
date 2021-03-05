@@ -64,23 +64,24 @@ The Views and Reviews is a project undertaken as part of Code Institute Diploma 
 
 This website will provide as a reference for any book buyer, to search for reviews. However, only registered users can post a review. This project has been build using Python and Flask Framework as Backend and MongoDB as the database. 
 
-In future, the reviewers can be routed to a website that would give them the best deal for buying their chosen book. More details on follows.
+In future, the reviewers can be routed to a website that would give them the best deal for buying their chosen book.
  
 ## User Experience
 
 ### Strategy Plane
 
-The "Views and Reviews" project has been concieved having in mind for the book readers community. 
+The "Views and Reviews" project has been concieved having in mind the book readers community. 
 Readers / buyers of books almost always like read a short review about the book to understand whether it would be the one of their next reading lists. 
 This website will help the users get a deeper insight into a book, and post a review on any kind of books ranging from story books, Cookery books, Art books, Biographies, Comics and more. Any user can search the website for books and read the related reviews that might have been posted already. 
 
 ### Scope Plane
 
 The scope of "Views and Reviews" is as follows:
-    1. Users will be able to register and thereby login into the website to post a review on any book of their choice
-    2. All users will be able to search for books and view a listing of the same. 
-    3. The "admin" user can publish any of the existing reviews as a Featured Review. And will have superuser access to remove any reviews (except for the one that is featured in the home page) and books from the website.
-    4. A registered user will be able to read and post a review for any books that are there in the site, if a book of their choice is not available, they can add the book to the site.
+
+1. Users will be able to register and thereby login into the website to post a review on any book of their choice
+2. All users will be able to search for books and view a listing of the same. 
+3. The "admin" user can publish any of the existing reviews as a Featured Review. And will have superuser access to remove any reviews (except for the one that is featured in the home page) and books from the website.
+4. A registered user will be able to read and post a review for any books that are there in the site, if a book of their choice is not available, they can add the book to the site.
 
 * Here, the focus is on reviews posted by user, and hence user management in detail is considered outside the scope of this system. 
 
@@ -109,7 +110,7 @@ The Entity Relationship Diagram is as follows.
 The wireframes for the project can be found in the attached pdf file
 * Wireframe for Desktop / laptop view [Desktop Wireframe](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Wireframes/Wireframes_MS3_Desktop.pdf)
 * Wireframe for iPad View [Ipad Wireframe](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Wireframes/Wireframes_MS3_ipad.pdf)
-* Wireframe for phone /iphone [Mobile Wireframe](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Wireframes/Wireframes_iphone.pdf)
+* Wireframe for phone /iphone [Mobile Wireframe](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Design/Wireframes/Wireframes_MS3_iphone.pdf)
 
 The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. 
 The flow of data is depicted as follows:
@@ -122,7 +123,7 @@ The project aims to address the following user stories:
 1. As a first time visitor I should be able to view the books in the website, by either Filtering by Category name and / or searching by a book name.
 2. I should be able to register an account if I donot already possess a login-id and password to use with "Views and Reviews"
 3. As a registered user, I should be able to add a review for existing books in the website. So that I do not have to upload duplicate books in for sharing my review.
-4. As a registered user, I should be able to add new books to the website and then write a review for it. So that I have the freedom to add new books even if they are not there in the website. 
+4. As a registered user, I should be able to add new books to the website and then write a review for it so that I have the freedom to add new books even if they are not there in the website. 
 5. As a registered user, I should be able to view all the books in my profile page and also have the privilege of reading and writing reviews for any of the books in the website.
 6. As a registered user, I should be able to delete and edit any book information of the books that has been added by me.
 7. As a registered user, I should be able to delete and edit any reviews that has been added by me. However, if one of my reviews are Featured in the home page, I will not be allowed to delete or modify this.
@@ -137,9 +138,10 @@ The overall feel of the website is for Book Readers to collaborate on a platform
 #### Fonts
 * For the most part of the website, I have used the font "Roboto" which gives a good reading experience. They are nicely spaced and make the site look more fuller.
 * For the Logo and the Nav bar, I have used "Cinzel" which I think fitted very well to put that highlight on the nav elements and the logout
-* For the confirmation or error message display, I have used the font "Roboto Slab" and this has helped differentiate them from the rest of the website.
+* For the confirmation or error message display, I have used the font "Source Code Pro" and this has helped differentiate them from the rest of the website.
+* For the feature section of the Home Page, I have used "Roboto Slab".
 
-#### icons
+#### Icons
 * I have used icons in the buttons, for most of the cases. The icons have been taken from fontawesome. I have made a distinguish pattern with colors in the delete functionalities of Admin user and a normal user.
     - The brown color buttons with Delete and Edit icons are indicative of the logged in user created entry which can be modified and deleted at their own will. However, a super user access has been given to "admin" user to with Red delete buttons to delete any of the entries, and he/she doesnot find relevant.
 * A star icon has been used to mark a Review as featured in the listing of the read reviews page and this cannot be edited and deleted by anyone, unless this is taken off the feature, and this is possible by Featuring any other review in its place.
@@ -149,7 +151,7 @@ I have kept minimum colors for this website and play around with the same tone o
    
 The top navbar and the footer has uses #D69B59 (a light caramel brown), Deep Orange for the category buttons in the home page (#bf360c) and shades of orange for Search (#fff3e0) and the Featured Review Sections on home page and Admin profile page (#ffe0b2).
 The text colors differ in different pages owing to the message they convey. 
-The Flash messages background color is lime (#cddc39). 
+The Flash messages background color is Lime (#cddc39). 
 
 Most of the color references can be found in the [Materializecss color page](https://materializecss.com/color.html)
 
@@ -396,11 +398,11 @@ The custom css style.css in the static folder of the project has been validated 
 #### Javascript Validation
 The custom javascript code has been validated using [jshint](https://jshint.com/). There are two warnings for the 2 statements that has used 'let' to declare variables
 However, since the variables used are applicable for the current block of code only, I have decided to go ahead with the two warnings. 
-The screenshot for javascript validation is [validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/javascript_validation.png)
+The screenshot for javascript validation is [Javascript validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/javascript_validation.png)
 
 #### PEP8 Compliance
 The python code file has been tested for PEP8 compliance, using the [PEP8 online](http://pep8online.com/)
-The validation output for PEP8 is as follows [PEP8](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/PEP8_validation.png)
+The validation output for PEP8 is as follows [PEP8 validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/PEP8_validation.png)
 
 ### Test for 404 - File not found
 The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. 
@@ -411,6 +413,11 @@ Below is the snapshot for the same
 The 500 error has been trapped to display a more Project Friendly page, which has been tested by setting Debug=False and making some code errors so that "The Internal Server Error" can be emulated.
 Below is the snapshot for the same
 [on Error 500](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/500.png)
+
+### Performance Testing
+A quick Audit was run using [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+Following is a snapshot of the outcome of the Audit using lighthouse
+![Lighthouse Summary]()
 
 ## Deployment
 
@@ -499,7 +506,7 @@ Once this is done, the Project can be run from the local using the following com
 
 ## Credits
 * For creating the sitemap I have used [Gloomaps](https://www.gloomaps.com/EJjeybEnhs)
-* For Creating the Data Flow Diagram I have used [Miro] (https://miro.com/app/board/o9J_lWeK1kc=/)
+* For Creating the Data Flow Diagram I have used [Miro](https://miro.com/app/board/o9J_lWeK1kc=/)
 * For generating values for Secret Keys, I have used [RandomKeygen](https://randomkeygen.com/). A SECRET_KEY is required when using the flash and session functions of Flask.
 * For creating the favicon.ico I have used [Gauger.io](https://gauger.io/fonticon/)
 * I have used [Dbdiagrams.io](https://dbdiagram.io/home) for creating the Entity Relationship Diagram for the website
@@ -507,12 +514,12 @@ Once this is done, the Project can be run from the local using the following com
 * For addressing complex searches I have referred to [MongoDB Documentation](https://docs.mongodb.com/manual/reference/operator/query/regex/)
 * For error handling, I have referred to [Flask Palletprojects link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/#error-handlers)
 * Table of contents generated in the Readme has been generated with the help of markdown-toc
-* All images and contents of books have been taken from [Books at Amazon] (https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
+* All images and contents of books have been taken from [Books at Amazon](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
 * I am thankful to the Peer review Group of CI for giving me a lot of feedback to improve my project
 * I am thankful to my family and friends for using this site to post some real reviews 
 
 ### Content
-* All images and most of the contents of books have been taken from [Books at Amazon] (https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
+* All images and most of the contents of books have been taken from [Books at Amazon](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
 * the reviews have been mostly posted by me and some of my friends who helped me test the project.
 
 ### Media
@@ -521,3 +528,6 @@ Once this is done, the Project can be run from the local using the following com
 ### Acknowledgements
 * I have been inspired to take up the book review project oweing to my daughters love of reading story books, taken after my husband, who loves to share his opinion on books he has read
 * I am thankful to my mentor for guiding me appropriately to come this far.
+
+### Contact
+In case of further questions and concerns please feel free to reach out to me at aninditasom@gmail.com.

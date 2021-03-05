@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Source+Code+Pro:wght@500&display=swap');
 nav {
     color: #02233B;;
 }
@@ -111,13 +112,12 @@ h4{
     color: #795548 ;
 }
 .flash-font{
-    font-family: "Roboto Slab";
+    font-family: "Source Code Pro";
     font-size: 25px;
 }
 
 .home-Feature{
     font-family: "Roboto Slab";
-    /* color: #795548; */
 }
 
 #homeCategories{
