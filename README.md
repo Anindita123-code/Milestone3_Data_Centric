@@ -1,6 +1,5 @@
 ![Views and Reviews](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/Documentation/Readme_header.png)
 
-# Table of contents
 - [Views and Reviews](#views-and-reviews)
   * [Project Overview](#project-overview)
   * [User Experience](#user-experience)
@@ -40,6 +39,13 @@
     + [Delete Reviews](#delete-reviews)
     + [Browser testing on Computer, Laptop, iPad and mobile devices](#browser-testing-on-computer--laptop--ipad-and-mobile-devices)
     + [Known Issues.](#known-issues)
+    + [Validation Checks](#validation-checks)
+      - [HTML Validation](#html-validation)
+      - [CSS Validation](#css-validation)
+      - [Javascript Validation](#javascript-validation)
+      - [PEP8 Compliance](#pep8-compliance)
+    + [Test for 404 - File not found](#test-for-404---file-not-found)
+    + [Test for 500 - Internal Server Error](#test-for-500---internal-server-error)
   * [Deployment](#deployment)
     + [Deploy to Heroku](#deploy-to-heroku)
     + [Access to code](#access-to-code)
@@ -49,6 +55,7 @@
     + [Acknowledgements](#acknowledgements)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 # Views and Reviews 
 [live link of the website](http://views-and-reviews.herokuapp.com/add_books)
@@ -385,25 +392,25 @@ The website has been extensively tested in Chrome and Safari web browsers, in iP
     The HTML Code used in all the pages are Valid as per W3C standards
 #### CSS Validation
     The custom css style.css in the static folder of the project has been validated using [W3C Css Validation service](https://jigsaw.w3.org/css-validator/). No errors were detected. Below is the snapshot for the same.
-    [CSS Validation outcome]()
+    [CSS Validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/css_validation.png)
 #### Javascript Validation
     The custom javascript code has been validated using [jshint](https://jshint.com/). There are two warnings for the 2 statements that has used 'let' to declare variables
     However, since the variables used are applicable for the current block of code only, I have decided to go ahead with the two warnings. 
-    The screenshot for javascript validation is [validation outcome]()
+    The screenshot for javascript validation is [validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/javascript_validation.png)
 #### PEP8 Compliance
     The python code file has been tested for PEP8 compliance, using the [PEP8 online](http://pep8online.com/)
-    The validation output for PEP8 is as follows [PEP8]()
+    The validation output for PEP8 is as follows [PEP8](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/PEP8_validation.png)
 
 ### Test for 404 - File not found
     The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. 
     Below is the snapshot for the same
-    [on Error 404]()
+    [on Error 404](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/400.png)
 
 ### Test for 500 - Internal Server Error
     The 500 error has been trapped to display a more Project Friendly page, which has been tested by setting Debug=False and making some code errors so that "The Internal Server Error" can be emulated.
     Below is the snapshot for the same
-    [on Error 404]()
-    
+    [on Error 500](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/500.png)
+
 ## Deployment
 
 The project uses github for hosting and has been deployed using heroku. The github repository is connected to the heroku.
