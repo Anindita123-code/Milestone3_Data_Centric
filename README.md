@@ -381,35 +381,38 @@ OR I add the image Url by using a image address from any of the internet locatio
 The website has been extensively tested in Chrome and Safari web browsers, in iPad and iPhone and adjusts according to the width of the screen
 
 ### Known Issues.
-1. The sitewide search of bookname is case sensitive and the case of the bookname (in pull of part) has to match to how it was entered.
+1. The sitewide search of bookname is case sensitive and the case of the bookname (in full or part) has to match to how it was entered.
 2. The admin user cannot post a review as he is logged in as "admin", this has been used as a rule to make sure that the reviews are added by a real users of the website.
 3. A logged in user can only read and post a review, this has been maintained to encourage users to create an account with "Views and Reviews"
 
 ### Validation Checks
 
 #### HTML Validation
-    The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). Since the HTML is created and maintained as separate parts in templates, the page HTML's have been taken using View->Developer->View Source and the code blocks have been tested for Validity.
-    The HTML Code used in all the pages are Valid as per W3C standards
+The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). Since the HTML is created and maintained as separate parts in templates, the page HTML's have been taken using View->Developer->View Source and the code blocks have been tested for Validity.
+The HTML Code used in all the pages are Valid as per W3C standards
+
 #### CSS Validation
-    The custom css style.css in the static folder of the project has been validated using [W3C Css Validation service](https://jigsaw.w3.org/css-validator/). No errors were detected. Below is the snapshot for the same.
-    [CSS Validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/css_validation.png)
+The custom css style.css in the static folder of the project has been validated using [W3C Css Validation service](https://jigsaw.w3.org/css-validator/). No errors were detected. Below is the snapshot for the same.
+[CSS Validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/css_validation.png)
+
 #### Javascript Validation
-    The custom javascript code has been validated using [jshint](https://jshint.com/). There are two warnings for the 2 statements that has used 'let' to declare variables
-    However, since the variables used are applicable for the current block of code only, I have decided to go ahead with the two warnings. 
-    The screenshot for javascript validation is [validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/javascript_validation.png)
+The custom javascript code has been validated using [jshint](https://jshint.com/). There are two warnings for the 2 statements that has used 'let' to declare variables
+However, since the variables used are applicable for the current block of code only, I have decided to go ahead with the two warnings. 
+The screenshot for javascript validation is [validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/javascript_validation.png)
+
 #### PEP8 Compliance
-    The python code file has been tested for PEP8 compliance, using the [PEP8 online](http://pep8online.com/)
-    The validation output for PEP8 is as follows [PEP8](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/PEP8_validation.png)
+The python code file has been tested for PEP8 compliance, using the [PEP8 online](http://pep8online.com/)
+The validation output for PEP8 is as follows [PEP8](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/PEP8_validation.png)
 
 ### Test for 404 - File not found
-    The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. 
-    Below is the snapshot for the same
-    [on Error 404](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/400.png)
+The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. 
+Below is the snapshot for the same
+[on Error 404](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/400.png)
 
 ### Test for 500 - Internal Server Error
-    The 500 error has been trapped to display a more Project Friendly page, which has been tested by setting Debug=False and making some code errors so that "The Internal Server Error" can be emulated.
-    Below is the snapshot for the same
-    [on Error 500](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/500.png)
+The 500 error has been trapped to display a more Project Friendly page, which has been tested by setting Debug=False and making some code errors so that "The Internal Server Error" can be emulated.
+Below is the snapshot for the same
+[on Error 500](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/500.png)
 
 ## Deployment
 
