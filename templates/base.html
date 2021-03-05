@@ -69,7 +69,7 @@
                 {% endif %}
         </ul>
     </header>
-    <section>
+    <sub-header>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -80,11 +80,11 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-    </section>
-    <content>
+    </sub-header>
+    <main-section>
         {% block content %}
         {% endblock %}
-    </content>
+    </main-section>
     <footer class="page-footer">
         <div class="container">
             <a class="grey-text text-lighten-4 center" target="_blank" href="http://www.facebook.com">

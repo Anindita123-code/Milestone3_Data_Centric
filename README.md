@@ -381,11 +381,29 @@ The website has been extensively tested in Chrome and Safari web browsers, in iP
 ### Validation Checks
 
 #### HTML Validation
+    The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). Since the HTML is created and maintained as separate parts in templates, the page HTML's have been taken using View->Developer->View Source and the code blocks have been tested for Validity.
+    The HTML Code used in all the pages are Valid as per W3C standards
 #### CSS Validation
+    The custom css style.css in the static folder of the project has been validated using [W3C Css Validation service](https://jigsaw.w3.org/css-validator/). No errors were detected. Below is the snapshot for the same.
+    [CSS Validation outcome]()
 #### Javascript Validation
+    The custom javascript code has been validated using [jshint](https://jshint.com/). There are two warnings for the 2 statements that has used 'let' to declare variables
+    However, since the variables used are applicable for the current block of code only, I have decided to go ahead with the two warnings. 
+    The screenshot for javascript validation is [validation outcome]()
 #### PEP8 Compliance
+    The python code file has been tested for PEP8 compliance, using the [PEP8 online](http://pep8online.com/)
+    The validation output for PEP8 is as follows [PEP8]()
 
+### Test for 404 - File not found
+    The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. 
+    Below is the snapshot for the same
+    [on Error 404]()
 
+### Test for 500 - Internal Server Error
+    The 500 error has been trapped to display a more Project Friendly page, which has been tested by setting Debug=False and making some code errors so that "The Internal Server Error" can be emulated.
+    Below is the snapshot for the same
+    [on Error 404]()
+    
 ## Deployment
 
 The project uses github for hosting and has been deployed using heroku. The github repository is connected to the heroku.

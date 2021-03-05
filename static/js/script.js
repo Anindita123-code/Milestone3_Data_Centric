@@ -1,3 +1,4 @@
+// Segment to initialize Materialize form elements and components
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: "right"});
     $('select').formSelect();
@@ -10,10 +11,11 @@ $(document).ready(function(){
         i18n: {
             done: "Select"
         }
-    });
+});
 
-    validateMaterializeSelect();
-    function validateMaterializeSelect() {
+// Validation Check for Materialize Select Elements
+validateMaterializeSelect();
+function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
         let classInvalid = { "border-bottom": "1px solid #f44336", "box-shadow": "0 1px 0 0 #f44336" };
         if ($("select.validate").prop("required")) {
@@ -39,7 +41,6 @@ $(document).ready(function(){
             }
         });
     }
-
 });
 
 

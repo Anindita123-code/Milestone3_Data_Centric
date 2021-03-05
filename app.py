@@ -3,6 +3,8 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
+from werkzeug.exceptions import HTTPException
+from werkzeug.exceptions import InternalServerError
 
 from flask import (
     Flask, flash, render_template,
@@ -30,8 +32,7 @@ def page_not_found(e):
 
 
 @app.errorhandler(500)
-def internal_server_error(e):
-    # note that we set the 404 status explicitly
+def internal_server(e):
     return render_template('500.html'), 500
 
 
@@ -386,7 +387,8 @@ def filtered_books():
                     query = {"category_name": category}
                 else:
                     query = {"$and": [{"category_name": category},
-                                      {"book_name": {"$regex": ".*"+keywords+".*"}}]}
+                                      {"book_name": {
+                                          "$regex": ".*"+keywords+".*"}}]}
             else:
                 if keywords != "":
                     query = {"book_name": {"$regex": ".*"+keywords+".*"}}
@@ -414,7 +416,7 @@ def category_list(category):
 
 
 @app.route('/find', methods=["GET", "POST"])
-# called from admins profile page to find reviews as per filter criteria mentioned
+# called from admins profile page to find reviews
 def find():
     if request.method == "POST":
         last_login = mongo.db.users.find_one(
@@ -453,4 +455,4 @@ def find():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)

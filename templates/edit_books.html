@@ -6,7 +6,8 @@
             <div class="card-panel">
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-                        <select id="category_name" name="category_name" class="validate" required>
+                        <select id="category_name" name="category_name" class="validate">
+                            <option value="" disabled>Select </option>
                             {% for category in categories %}
                                 {% if category.category_name == book.category_name %}
                                     <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
@@ -39,7 +40,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-                        <textarea id="description" name="description" value="" class="materialize-textarea">{{ book.description }}</textarea>
+                        <textarea id="description" name="description" class="materialize-textarea">{{ book.description }}</textarea>
                         <label for="description">Description of the Book (Optional)</label>
                     </div>
                 </div>

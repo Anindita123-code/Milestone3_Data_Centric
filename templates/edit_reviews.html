@@ -5,14 +5,15 @@
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
             <div class="card-panel">
                 <div class="row">
-                    <div class="col s12 m4 center-align"><img src="{{ image_url }}" width="200" height="300"> <em><br> {{ book }} <br> {{ author }}</em></div>
+                    <div class="col s12 m4 center-align"><img src="{{ image_url }}" width="200" height="300" alt="Book Cover Image"> <em><br> {{ book }} <br> {{ author }}</em></div>
                     <div class="col s12 m8">
                         <div class="row center-align last-texts">
                             <br>Last updated on {{ review.added_date }}
                         </div>
-                        <label for="review">Your review <em>(Max 400 words)</em></label><br><br>
+                        <br>
                         <div class="row"> 
                             <div class="col s12 m8 offset-m2">
+                                 <label for="review">Your review <em>(Max 400 words)</em></label><br>
                                  <textarea id="review" name="review" maxlength="400">{{ review.review_description }}</textarea>
                             </div>
                         </div>
