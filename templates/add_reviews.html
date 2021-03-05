@@ -4,6 +4,13 @@
     <div class="container row">
         <br>
         <div class="col s12 m4 center-align">
+        {% if session.user %}
+            {% if session.user == "admin" %}
+                <a href="{{ url_for ('admin_profile')}}"><i class="fas fa-angle-double-left"></i> Go Back </a>
+            {% else %}
+                <a href="{{ url_for ('user_profile', username=session.user) }}"><i class="fas fa-angle-double-left"></i> Go Back </a>
+            {% endif %}
+        {% endif %}<br>
             <img class="responsive-img" width="255" height="300" src="{{ image_url }}" alt="Image for book front cover">
             <p>{{ book }} <em><br>by: {{ author }}</em></p>
         </div>
