@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- welcome message section -->
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <h4 class="center-align light-blue-text text-darken-4">
@@ -13,7 +14,8 @@
         You can browse from the below list of Books. <br> You can read / post a review on a book by using the "Check Reviews.." link. <br>Happy Viewing & Reviewing!
         <br><br>
     </p>
-{% for book in books %}
+    <!-- book list section -->
+    {% for book in books %}
     <div class="col s12 m3 l3">
         <div class="card large">
             <div class="card-image waves-effect waves-block waves-light center-align">
@@ -53,7 +55,6 @@
             </div>
         </div>
     </div>        
-{% endfor %}
+    {% endfor %}
 </div>   
-
 {% endblock %}

@@ -3,8 +3,6 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
-from werkzeug.exceptions import HTTPException
-from werkzeug.exceptions import InternalServerError
 
 from flask import (
     Flask, flash, render_template,
