@@ -258,7 +258,8 @@ User authentication involves the following functionalities which have been teste
     * I try to login with username / password combination existing in the database. I get a message "Login Successful" and i am transferred to my profile page.
 
 3. Forgot Password for Existing User
-    * In the login screen below the button, I use the Generate new Password link. I am routed to the Reset Password screen.
+    * In the Top Nav Bar as a logged in User, I can see the Change Password option, I click this and I am routed to the Reset Password Page. 
+        In the login screen below the login button, I use the Generate new Password link. I am routed to the Reset Password screen as well. 
     * I add the username less than 5 characters and try to submit. A mandatory pattern matching error pops up.
     * I add an invalid email id and try to submit. my input is underlined in red indicating that something is wrong.
     * I add the email id which is valid and this has to be the one that I had used during registration, this shows a green underline and i can proceed
@@ -330,7 +331,7 @@ OR I add the image Url by using a image address from any of the internet locatio
 * I want to delete any of my reviews, I select the brown delete button for the review I want to delete, a Modal Delete window pops up for confirmation "This record will be deleted, do you wish to continue?" 
 * I select "no" and nothing happens, I select "yes" and my review is removed from the list of reviews for the book.
 
-### Not Registered User
+### Not A Registered User
 * As a user who has not logged into the site, I can go and search the books by using the search functionality. The book list is displayed.
 * I select "check reviews.." of any chosen book, I am shown a message "New user? Register here, Registered User? Login here to read and write reviews"
 
